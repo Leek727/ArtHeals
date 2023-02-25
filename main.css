@@ -16,7 +16,7 @@ body {
 }
 
 .parallax {
-    background-image: url("images/painting.jpg");
+    background-image: url("images/CoverArt.png");
 
     min-height: 100vh;
     opacity: .60;
@@ -27,5 +27,16 @@ body {
     background-size: cover;
 }
 
+.small_parallax {
+    background-image: url("images/CoverArt.png");
+
+    min-height: 40vh;
+    opacity: .60;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 

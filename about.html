@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Art Heals</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav {
+            background-color: rgba(0, 0, 0, .4);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+            min-height: 10vh;
+        }
+
+        .custom-shadow:hover {
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .navbar-menu a {
+            color: white;
+            font-size: 17px;
+        }
+
+        .card {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1);
+
+        }
+    </style>
+    <script type="module" src="index.js"></script>
+
+</head>
+
+
+<body>
+    <div class="card" id="pagetop">
+        <div class="card-image">
+            <figure class="image" style="background-color: black;">
+                <div class="small_parallax"></div>
+            </figure>
+        </div>
+        <div class="is-overlay">
+            <nav class="nav navbar is-transparent is-fixed-top">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="#pagetop">
+                        <img src="images/logo.png" style="border-radius: 5px; max-height: 60px">
+                    </a>
+                    <a role="button" class="navbar-burger burger nav-toggle" onclick="toggleBurger()" aria-label="menu"
+                        aria-expanded="false" style="width:10vh; height:10vh">
+                        <span aria-hidden="true" style="color:white"></span>
+                        <span aria-hidden="true" style="color:white"></span>
+                        <span aria-hidden="true" style="color:white"></span>
+                    </a>
+
+                </div>
+
+
+
+                
+                <div class="navbar-menu nav-menu" style="background-color: rgba(0, 0, 0, 0);">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="index.html">
+                            Home
+                        </a>
+                        <a class="navbar-item" href="about.html">
+                            About Us
+                        </a>
+                        <a class="navbar-item" href="contact.html">
+                            Contact Us
+                        </a>
+                        <a class="navbar-item" href="news.html">
+                            News
+                        </a>
+                        <a class="navbar-item" href="donate.html">
+                            Donate
+                        </a>
+                        <a class="navbar-item" href="store.html">
+                            Store
+                        </a>
+
+
+                    </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="field is-grouped">
+                                <p class="control">
+                                    <a data-cold class="bd-tw-button button is-link"
+                                        href="https://github.com/Leek727/ArtHeals">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>
+                                            Github
+                                        </span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+
+    </div>
+
+    <section class="section" style="background-color: rgba(250, 249, 246, 255)">
+        <div class="container">
+            <h1 class="title has-text-centered is-1">Meet Our Team</h1>
+            <hr style="height:2px;border:none;color:#333;background-color:#333; opacity:30%" />
+            <div class="columns is-multiline">
+                <div class="column is-one-third center" >
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="images/Sophia.png">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="title is-4">Sophia Zhang</h2>
+                            <p class="subtitle is-6">Co-Founder</p>
+                            <p class="content">Sophia Zhang is a talented artist with many award-winning artworks. She would like to dedicated her work to the Art Heals charity project and promote new activities for our fundraising efforts. She believes art can give people the opportunity to make a difference in the lives of others. She is hoping to make an impact by donating her art pieces and helping those in need through supporting healthcare and promoting philanthropy. Sophia is currently working diligently to create new art for Art Heals all year around. She also initiates, organizes and designs new programs for our artists, members and volunteers to work together for our missions and services. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-third center">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="title is-4">Jason Wang</h2>
+                            <p class="subtitle is-6">Co-Founder</p>
+                            <p class="content">Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-third center">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="title is-4">Placeholder</h2>
+                            <p class="subtitle is-6">Co-Placeholder</p>
+                            <p class="content">Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later Add later </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <div class="is-overlay center">
+        <div class="center_horizontal" style="display:block; padding-top: 16vh">
+            <p class="title is-1 has-text-light center">
+                About Us
+            </p>
+        </div>
+
+    </div>
+
+
+</body>
