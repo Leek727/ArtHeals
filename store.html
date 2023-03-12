@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Art Heals</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav {
+            background-color: rgba(0, 0, 0, .4);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+            min-height: 10vh;
+        }
+
+        .custom-shadow:hover {
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .navbar-menu a {
+            color: white;
+            font-size: 17px;
+        }
+
+        .card {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1);
+
+        }
+    </style>
+    <script type="module" src="index.js"></script>
+
+</head>
+
+
+<body>
+    <div class="card" id="pagetop">
+
+        <div class="is-overlay">
+            <nav class="nav navbar is-transparent is-fixed-top">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="#pagetop">
+                        <img src="images/logo.png" style="border-radius: 5px; max-height: 60px">
+                    </a>
+                    <a role="button" class="navbar-burger burger nav-toggle" onclick="toggleBurger()" aria-label="menu"
+                        aria-expanded="false" style="width:10vh; height:10vh">
+                        <span aria-hidden="true" style="color:white"></span>
+                        <span aria-hidden="true" style="color:white"></span>
+                        <span aria-hidden="true" style="color:white"></span>
+                    </a>
+
+                </div>
+
+
+
+
+                <div class="navbar-menu nav-menu" style="background-color: rgba(0, 0, 0, 0);">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="index.html">
+                            Home
+                        </a>
+                        <a class="navbar-item" href="about.html">
+                            About Us
+                        </a>
+                        <a class="navbar-item" href="contact.html">
+                            Contact Us
+                        </a>
+                        <a class="navbar-item" href="news.html">
+                            News
+                        </a>
+                        <a class="navbar-item" href="donate.html">
+                            Donate
+                        </a>
+                        <a class="navbar-item" href="store.html">
+                            Store
+                        </a>
+
+
+                    </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="field is-grouped">
+                                <p class="control">
+                                    <a data-cold 
+                                    class="bd-tw-button button is-link"
+                                    href="https://www.facebook.com/profile.php?id=100090468360449">
+                                    <span class="icon">
+                                        <i class="fab fa-facebook"></i>
+                                    </span>
+                                    <span>
+                                        Facebook
+                                    </span>
+                                </a>
+
+                                <a data-cold 
+                                    class="bd-tw-button button is-link"
+                                    href="https://twitter.com/Arthealsfw">
+                                    <span class="icon">
+                                        <i class="fab fa-twitter"></i>
+                                    </span>
+                                    <span>
+                                        Twitter
+                                    </span>
+                                </a>
+
+                                <a data-cold 
+                                    class="bd-tw-button button is-link"
+                                    href="https://github.com/Leek727/ArtHeals">
+                                    <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+
+    </div>
+
+    <section class="hero is-light">
+        <div class="hero-body center">
+            <div class="container">
+                <a class="center_horizontal" href="/store" target="_blank">
+                    <h1 class="title is-1 is-uppercase">Works</h1>
+                </a>
+                <div class="columns is-flex align-items-stretch " >
+                    <div class="column is-one-third">
+                        <div class="card" style="margin:5vh">
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img src="images/store0.png" >
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="title is-4">Sonder</h2>
+                                <p class="subtitle is-6">$200</p>
+                                <p class="subtitle is-6">Sophia Z., Acrylic Painting, 9X12 in, Scholastic Art Award,
+                                    Gold Key</p>
+                                <p class="content">I created this painting to symbolize the philosophy of profound
+                                    pondering and attitude of contemplation. Different people have each have different
+                                    understandings of art. You can interpret the meaning of this painting in your own
+                                    way. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-one-third">
+                        <div class="card" style="margin:5vh">
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img src="images/store1.png" >
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="title is-4">Achilles</h2>
+                                <p class="subtitle is-6">$200</p>
+                                <p class="subtitle is-6">Sophia Z., Charcoal Drawing</p>
+                                <p class="content">This is a charcoal drawing of the Greek war hero Achilles. In Homer’s
+                                    Iliad, he is well-known for slaying the Trojan prince Hector outside the gates of
+                                    Troy. This piece is meant to symbolize loss and grief.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third">
+                        <div class="card" style="margin:5vh;">
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img src="images/store2.png" >
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="title is-4">Perseus</h2>
+                                <p class="subtitle is-6">$150</p>
+                                <p class="subtitle is-6">Sophia Z., Charcoal Drawing, 14X18 in</p>
+                                <p class="content">In Greek mythology, Perseus is best known for slaying the Gorgon
+                                    Medusa and rescuing Andromeda from the sea monster. In this drawing, Perseus,
+                                    wearing the Cap of Invisibility given to him by war goddess Athena, holds up the
+                                    severed head of Medusa (not shown). This piece symbolizes triumph and conquest. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class=" center_horizontal has-text-centered" >
+
+            <p>
+                <strong>Contact Us at:  </strong> <a href="mailto:arthealsfw@gmail.com" target="_blank">arthealsfw@gmail.com</a>
+            </p>
+
+        </div>
+
+
+
+        <div class=" center_horizontal has-text-centered" style="padding-top:2vh">
+
+            <div class="field is-grouped">
+                <p class="control">
+                    <a data-cold 
+                        class="bd-tw-button button is-link"
+                        href="https://www.facebook.com/profile.php?id=100090468360449">
+                        <span class="icon">
+                            <i class="fab fa-facebook"></i>
+                        </span>
+                    </a>
+
+                    <a data-cold 
+                        class="bd-tw-button button is-link"
+                        href="https://twitter.com/Arthealsfw">
+                        <span class="icon">
+                            <i class="fab fa-twitter"></i>
+                        </span>
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class=" center_horizontal has-text-centered" style="padding-top:2vh">
+
+            <p>
+                <strong>Art Heals</strong>
+                <br> Copyright 2023
+            </p>
+           
+        </div>
+
+    </footer>
+</body>
