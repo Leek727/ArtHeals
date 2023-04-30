@@ -36,7 +36,19 @@
         }
     </style>
     <script type="module" src="index.js"></script>
-
+    <script>
+        function submit_form() {
+            fetch("https://docs.google.com/forms/d/e/1FAIpQLScTbojQskJ5K0o1kAXe47RsEx-tLTQayZkbuso7ZGYWSvlb3Q/formResponse?entry.1815641398="+document.getElementById('NAMEFIELD').value+"&entry.1747151761="+document.getElementById('PHONEFIELD').value+"&entry.1629016303="+document.getElementById('EMAILFIELD').value+"&entry.826409313="+document.getElementById('MESSAGEFIELD').value+"&submit=Submit").then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                console.log(data);
+            }).catch(function (err) {
+                console.log('Fetch Error :-S', err);
+            });
+            window.alert("Submitted!");
+        }
+        //https://docs.google.com/forms/d/e/1FAIpQLScTbojQskJ5K0o1kAXe47RsEx-tLTQayZkbuso7ZGYWSvlb3Q/formResponse?entry.1815641398=name&entry.1747151761=phone&entry.1629016303=email&entry.826409313=message&submit=Submit
+    </script>
 </head>
 
 
@@ -92,35 +104,32 @@
                         <div class="navbar-item">
                             <div class="field is-grouped">
                                 <p class="control">
-                                    <a data-cold 
-                                    class="bd-tw-button button is-link"
-                                    href="https://www.facebook.com/profile.php?id=100090468360449">
-                                    <span class="icon">
-                                        <i class="fab fa-facebook"></i>
-                                    </span>
-                                    <span>
-                                        Facebook
-                                    </span>
-                                </a>
+                                    <a data-cold class="bd-tw-button button is-link"
+                                        href="https://www.facebook.com/profile.php?id=100090468360449">
+                                        <span class="icon">
+                                            <i class="fab fa-facebook"></i>
+                                        </span>
+                                        <span>
+                                            Facebook
+                                        </span>
+                                    </a>
 
-                                <a data-cold 
-                                    class="bd-tw-button button is-link"
-                                    href="https://twitter.com/Arthealsfw">
-                                    <span class="icon">
-                                        <i class="fab fa-twitter"></i>
-                                    </span>
-                                    <span>
-                                        Twitter
-                                    </span>
-                                </a>
+                                    <a data-cold class="bd-tw-button button is-link"
+                                        href="https://twitter.com/Arthealsfw">
+                                        <span class="icon">
+                                            <i class="fab fa-twitter"></i>
+                                        </span>
+                                        <span>
+                                            Twitter
+                                        </span>
+                                    </a>
 
-                                <a data-cold 
-                                    class="bd-tw-button button is-link"
-                                    href="https://github.com/Leek727/ArtHeals">
-                                    <span class="icon">
-                                        <i class="fab fa-github"></i>
-                                    </span>
-                                </a>
+                                    <a data-cold class="bd-tw-button button is-link"
+                                        href="https://github.com/Leek727/ArtHeals">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -143,51 +152,57 @@
     </div>
     <div class="is-overlay center">
 
-    <div class="center" style="width: 50%; padding-top: 10vh;">
-        <div class="box">
-            <div class="field">
-                <label class="label">Name</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Your Name">
+
+
+        <div class="center" style="width: 50%; padding-top: 10vh;">
+            <div class="box">
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input id="NAMEFIELD" class="input" type="text" placeholder="Your Name">
+                    </div>
                 </div>
+
+                <div class="field">
+                    <label class="label">Phone</label>
+                    <div class="control">
+                        <input id="PHONEFIELD" class="input" type="text" placeholder="(000)-000-000">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input id="EMAILFIELD" class="input" type="email" placeholder="joe@gmail.com">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="field">
+                    <label class="label">Message</label>
+                    <div class="control">
+                        <input id="MESSAGEFIELD" class="input is-primary" type="text"
+                            placeholder="Type your message here">
+                    </div>
+                </div>
+
+                <button class="button is-primary center" onclick="submit_form()">
+                    Submit
+                </button>
+
             </div>
 
-            <div class="field">
-                <label class="label">Phone</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="(000)-000-000">
-                </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Email</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input" type="email" placeholder="joe@gmail.com" >
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
-                    </span>
-                </div>
-                
-            </div>
-
-            <div class="field">
-                <label class="label">Message</label>
-                <div class="control">
-                    <input class="input is-primary" type="text" placeholder="Type your message here">
-                </div>
-            </div>
-
-            <button class="button is-primary center">
-                Submit
-            </button>
         </div>
     </div>
-    </div>
     <footer class="footer">
-        <div class=" center_horizontal has-text-centered" >
+        <div class=" center_horizontal has-text-centered">
 
             <p>
-                <strong>Contact Us at:  </strong> <a href="mailto:arthealsfw@gmail.com" target="_blank">arthealsfw@gmail.com</a>
+                <strong>Contact Us at: </strong> <a href="mailto:arthealsfw@gmail.com"
+                    target="_blank">arthealsfw@gmail.com</a>
             </p>
 
         </div>
@@ -198,17 +213,14 @@
 
             <div class="field is-grouped">
                 <p class="control">
-                    <a data-cold 
-                        class="bd-tw-button button is-link"
+                    <a data-cold class="bd-tw-button button is-link"
                         href="https://www.facebook.com/profile.php?id=100090468360449">
                         <span class="icon">
                             <i class="fab fa-facebook"></i>
                         </span>
                     </a>
 
-                    <a data-cold 
-                        class="bd-tw-button button is-link"
-                        href="https://twitter.com/Arthealsfw">
+                    <a data-cold class="bd-tw-button button is-link" href="https://twitter.com/Arthealsfw">
                         <span class="icon">
                             <i class="fab fa-twitter"></i>
                         </span>
@@ -223,7 +235,7 @@
                 <strong>Art Heals</strong>
                 <br> Copyright 2023
             </p>
-           
+
         </div>
 
     </footer>
