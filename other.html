@@ -41,7 +41,7 @@
         }
     </style>
     <script type="module" src="index.js"></script>
-
+    <script type="module" src="main.js"></script>
 </head>
 
 
@@ -71,8 +71,8 @@
                         <a class="navbar-item" href="index.html">
                             Home
                         </a>
-                        <a class="navbar-item" href="about.html">
-                            About Us
+                        <a class="navbar-item" href="contact.html">
+                            Contact Us
                         </a>
                         <a class="navbar-item" href="meet-the-team.html">
                             Meet The Team
@@ -93,35 +93,32 @@
                         <div class="navbar-item">
                             <div class="field is-grouped">
                                 <p class="control">
-                                    <a data-cold 
-                                    class="bd-tw-button button is-link"
-                                    href="https://www.facebook.com/profile.php?id=100090468360449">
-                                    <span class="icon">
-                                        <i class="fab fa-facebook"></i>
-                                    </span>
-                                    <span>
-                                        Facebook
-                                    </span>
-                                </a>
+                                    <a data-cold class="bd-tw-button button is-link"
+                                        href="https://www.facebook.com/profile.php?id=100090468360449">
+                                        <span class="icon">
+                                            <i class="fab fa-facebook"></i>
+                                        </span>
+                                        <span>
+                                            Facebook
+                                        </span>
+                                    </a>
 
-                                <a data-cold 
-                                    class="bd-tw-button button is-link"
-                                    href="https://twitter.com/Arthealsfw">
-                                    <span class="icon">
-                                        <i class="fab fa-twitter"></i>
-                                    </span>
-                                    <span>
-                                        Twitter
-                                    </span>
-                                </a>
+                                    <a data-cold class="bd-tw-button button is-link"
+                                        href="https://twitter.com/Arthealsfw">
+                                        <span class="icon">
+                                            <i class="fab fa-twitter"></i>
+                                        </span>
+                                        <span>
+                                            Twitter
+                                        </span>
+                                    </a>
 
-                                <a data-cold 
-                                    class="bd-tw-button button is-link"
-                                    href="https://github.com/Leek727/ArtHeals">
-                                    <span class="icon">
-                                        <i class="fab fa-github"></i>
-                                    </span>
-                                </a>
+                                    <a data-cold class="bd-tw-button button is-link"
+                                        href="https://github.com/Leek727/ArtHeals">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -135,74 +132,145 @@
 
     <section class="hero is-light">
         <div class="hero-body center">
-            <div class="container" >
+            <div class="container">
                 <a class="center_horizontal" style="margin-top: 10vh">
                     <h1 class="title is-1 is-uppercase">Works</h1>
-                    
+
                 </a>
-                <a class="center_horizontal" href="store.html" style="margin-top: 1vh" >
-                    <h1 class="subtitle is-uppercase text-decoration: underline;" style="color: hsl(171, 100%, 41%);">Back to Store</h1>
-                    
+                <a class="center_horizontal" href="store.html" style="margin-top: 1vh">
+                    <h1 class="subtitle is-uppercase text-decoration: underline;" style="color: hsl(171, 100%, 41%);">
+                        Back to Store</h1>
+
                 </a>
-                
-                
-                <div class="columns is-flex align-items-stretch " >
+
+                <div class="columns is-flex align-items-stretch ">
+
                     <div class="column is-one-third">
-                        <div class="card" style="margin:5vh">
-                            <div class="card-image">
-                                <figure class="image">
-                                    <img src="images/other/shelter.png" >
-                                </figure>
+                        <a id="modal-button0">
+                            <div class="card" style="margin:5vh">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="images/other/shelter.png">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Shelter of Existence</h2>
+                                    <p class="subtitle is-6">$200</p>
+                                    <p class="subtitle is-6">Sophia Zhang, drawing, 13X16 in,
+                                        Scholastic Art Award, Silver Key</p>
+                                </div>
                             </div>
-                            <div class="card-content">
-                                <h2 class="title is-4">Shelter of Existence</h2>
-                                <p class="subtitle is-6">$200</p>
-                                <p class="subtitle is-6">Sophia Zhang, drawing, 13X16 in,
-                                    Scholastic Art Award, Silver Key</p>
+                        </a>
+
+
+                        <div class="modal" id="my-modal0">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="images/other/shelter.png">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Shelter of Existence</h2>
+                                        <p class="subtitle is-6">$200</p>
+                                        <p class="subtitle is-6">Sophia Zhang, drawing, 13X16 in,
+                                            Scholastic Art Award, Silver Key</p>
+                                        <button class="button is-primary" id="modal-close0">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="column is-one-third">
+                        <a id="modal-button1">
+                            <div class="card" style="margin:5vh">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="images/other/summer.png">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Summer of ’83</h2>
+                                    <p class="subtitle is-6">$100</p>
+                                    <p class="subtitle is-6">Sophia Z, 12X16 in</p>
+
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <div class="modal" id="my-modal1">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="images/other/summer.png">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Summer of ’83</h2>
+                                        <p class="subtitle is-6">$100</p>
+                                        <p class="subtitle is-6">Sophia Z, 12X16 in</p>
+                                        <button class="button is-primary" id="modal-close1">Close</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="column is-one-third">
-                        <div class="card" style="margin:5vh">
-                            <div class="card-image">
-                                <figure class="image">
-                                    <img src="images/other/summer.png" >
-                                </figure>
+                        <a id="modal-button2">
+                            <div class="card" style="margin:5vh;">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="images/other/impression.png">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Impression of Prague</h2>
+                                    <p class="subtitle is-6">$200</p>
+                                    <p class="subtitle is-6">Sophia Zhang, watercolor, 12X18 in</p>
+                                </div>
                             </div>
-                            <div class="card-content">
-                                <h2 class="title is-4">Summer of ’83</h2>
-                                <p class="subtitle is-6">$100</p>
-                                <p class="subtitle is-6">Sophia Z, 12X16 in</p>
+                        </a>
 
+                        <div class="modal" id="my-modal2">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="images/other/impression.png">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Impression of Prague</h2>
+                                        <p class="subtitle is-6">$200</p>
+                                        <p class="subtitle is-6">Sophia Zhang, watercolor, 12X18 in</p>
+                                        <button class="button is-primary" id="modal-close2">Close</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="column is-one-third">
-                        <div class="card" style="margin:5vh;">
-                            <div class="card-image">
-                                <figure class="image">
-                                    <img src="images/other/impression.png" >
-                                </figure>
-                            </div>
-                            <div class="card-content">
-                                <h2 class="title is-4">Impression of Prague</h2>
-                                <p class="subtitle is-6">$200</p>
-                                <p class="subtitle is-6">Sophia Zhang, watercolor, 12X18 in</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-      
+
     <footer class="footer">
-        <div class=" center_horizontal has-text-centered" >
+        <div class=" center_horizontal has-text-centered">
 
             <p>
-                <strong>Contact Us at:  </strong> <a href="mailto:arthealsfw@gmail.com" target="_blank">arthealsfw@gmail.com</a>
+                <strong>Contact Us at: </strong> <a href="mailto:arthealsfw@gmail.com"
+                    target="_blank">arthealsfw@gmail.com</a>
             </p>
 
         </div>
@@ -213,17 +281,14 @@
 
             <div class="field is-grouped">
                 <p class="control">
-                    <a data-cold 
-                        class="bd-tw-button button is-link"
+                    <a data-cold class="bd-tw-button button is-link"
                         href="https://www.facebook.com/profile.php?id=100090468360449">
                         <span class="icon">
                             <i class="fab fa-facebook"></i>
                         </span>
                     </a>
 
-                    <a data-cold 
-                        class="bd-tw-button button is-link"
-                        href="https://twitter.com/Arthealsfw">
+                    <a data-cold class="bd-tw-button button is-link" href="https://twitter.com/Arthealsfw">
                         <span class="icon">
                             <i class="fab fa-twitter"></i>
                         </span>
@@ -238,9 +303,8 @@
                 <strong>Art Heals</strong>
                 <br> Copyright 2023
             </p>
-           
+
         </div>
 
     </footer>
 </body>
-
