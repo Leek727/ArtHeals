@@ -50,6 +50,7 @@
             transition: all 0.3s ease-in-out;
         }
 
+
         .card:hover {
             box-shadow: 0px 0px 5px #ccc;
         }
@@ -68,6 +69,12 @@
 
         .card.expanded .content {
             height: auto;
+        }
+
+        @media (min-width: 768px) {
+            .large_card {
+                width: 30vw;
+            }
         }
     </style>
     <script type="module" src="index.js"></script>
@@ -168,7 +175,7 @@
 
                     <div class="column is-half center_horizontal" >
                         <a id="modal-button5">
-                            <div class="card" style="width: 30vw;">
+                            <div class="card large_card">
                                 <div class="card-image">
                                     <figure class="image">
                                         <img src="images/characters/crossroads.png" >
@@ -207,7 +214,7 @@
 
                     <div class="column is-half center_horizontal">
                         <a id="modal-button6">
-                            <div class="card" style="width: 28vw;">
+                            <div class="card large_card" >
                                 <div class="card-image">
                                     <figure class="image">
                                         <img src="images/characters/inner_peace.png">
