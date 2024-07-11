@@ -1,13 +1,13 @@
 from pymongo import MongoClient
 from bson import ObjectId
+from dotenv import load_dotenv
+import os
 
-#print(movies.find()[0])
-#print(movies.find_one({"title": "The Great Train Robbery"}))
+load_dotenv()
 
 class AtlasClient():
     def __init__(self):
-        ATLAS_URI = "mongodb+srv://jasonxwang9:H0vkAO71JwGHJJI9@testcluster.0gygauk.mongodb.net/?retryWrites=true&w=majority&appName=testcluster"
-
+        ATLAS_URI = os.getenv("ATLAS_URI")
         client = MongoClient(ATLAS_URI)
 
         db = client['checklist_db']

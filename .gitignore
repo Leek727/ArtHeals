@@ -1,0 +1,4 @@
+app/.env
+instance
+app/__pycache__/
+migrations
