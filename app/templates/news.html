@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Art Heals</title>
-    <link rel="icon" type="image/x-icon" href="images/logo.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
-    <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="main.css">
     <style>
         html {
             scroll-behavior: smooth;
@@ -63,104 +51,26 @@
             z-index: 1;
         }
     </style>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="static/index.js"></script>
 
 </head>
 
 
-<body>
-    <div class="card" id="pagetop">
-        <div class="card-image">
-            <figure class="image" style="background-color: black;">
-                <div class="small_parallax"></div>
-            </figure>
-        </div>
-        <div class="is-overlay">
-            <nav class="nav navbar is-transparent is-fixed-top">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="/index.html">
-                        <img src="images/logo.png" style="border-radius: 5px; max-height: 60px">
-                    </a>
-                    <a role="button" class="navbar-burger burger nav-toggle" onclick="toggleBurger()" aria-label="menu"
-                        aria-expanded="false" style="width:10vh; height:10vh">
-                        <span aria-hidden="true" style="color:white"></span>
-                        <span aria-hidden="true" style="color:white"></span>
-                        <span aria-hidden="true" style="color:white"></span>
-                    </a>
-
-                </div>
+{% extends "base.html" %}
 
 
 
-
-                <div class="navbar-menu nav-menu" style="background-color: rgba(0, 0, 0, 0);">
-                    <div class="navbar-start">
-                        <a class="navbar-item" href="index.html">
-                            Home
-                        </a>
-                        <a class="navbar-item" href="contact.html">
-                            Contact Us
-                        </a>
-                        <a class="navbar-item" href="meet-the-team.html">
-                            Meet The Team
-                        </a>
-                        <a class="navbar-item" href="news.html">
-                            News
-                        </a>
-                        <a class="navbar-item" href="donate.html">
-                            Donate
-                        </a>
-                        <a class="navbar-item" href="store.html">
-                            Store
-                        </a>
-
-
-                    </div>
-                    <div class="navbar-end">
-                        <div class="navbar-item">
-                            <div class="field is-grouped">
-                                <p class="control">
-                                    <a data-cold class="bd-tw-button button is-link"
-                                        href="https://www.facebook.com/profile.php?id=100090468360449">
-                                        <span class="icon">
-                                            <i class="fab fa-facebook"></i>
-                                        </span>
-                                        <span>
-                                            Facebook
-                                        </span>
-                                    </a>
-
-                                    <a data-cold class="bd-tw-button button is-link"
-                                        href="https://twitter.com/Arthealsfw">
-                                        <span class="icon">
-                                            <i class="fab fa-twitter"></i>
-                                        </span>
-                                        <span>
-                                            Twitter
-                                        </span>
-                                    </a>
-
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
-        </div>
-
+{% block content %}
+    <div class="card-image">
+        <figure class="image" style="background-color: black;">
+            <div class="small_parallax"></div>
+        </figure>
     </div>
-
     <div>
         
         <div class="newscard">
             <div class="card">
-                <div class="card-image">
-                    <figure class="image">
-                        <img src="">
-                    </figure>
-                </div>
+
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
@@ -189,7 +99,7 @@
 
 
                         <figure class="image">
-                            <img src="/images/news/fadingbloom.png" style="width:auto; max-height: 60vh;">
+                            <img src="static/images/news/fadingbloom.png" style="width:auto; max-height: 60vh;">
                         </figure>
 
                         <time datetime="AAAA">May 13, 2024</time>
@@ -204,11 +114,7 @@
         
         <div class="newscard">
             <div class="card">
-                <div class="card-image">
-                    <figure class="image">
-                        <img src="">
-                    </figure>
-                </div>
+
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
@@ -229,12 +135,12 @@
                         <div class="columns">
                             <div class="column">
                                 <figure class="image">
-                                    <img src="/images/news/suzhang10-05-16.png" style="width:auto; max-height: 60vh;">
+                                    <img src="static/images/news/suzhang10-05-16.png" style="width:auto; max-height: 60vh;">
                                 </figure>
                             </div>
                             <div class="column">
                                 <figure class="image">
-                                    <img src="/images/news/suzhang11-06-12.png" style="width:auto; max-height: 60vh;">
+                                    <img src="static/images/news/suzhang11-06-12.png" style="width:auto; max-height: 60vh;">
                                 </figure>
                             </div>
                         </div>
@@ -252,11 +158,7 @@
         
         <div class="newscard">
             <div class="card">
-                <div class="card-image">
-                    <figure class="image">
-                        <img src="">
-                    </figure>
-                </div>
+
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
@@ -274,10 +176,10 @@
 
 
                         <figure class="image">
-                            <img src="/images/Apr15.png" style="width:auto; max-height: 60vh;">
+                            <img src="static/images/Apr15.png" style="width:auto; max-height: 60vh;">
                         </figure>
 
-                        <img src="/images/Apr152nd.png" style="width: auto;">
+                        <img src="static/images/Apr152nd.png" style="width: auto;">
 
 
                         <time datetime="AAAA">April 15, 2024</time>
@@ -290,11 +192,7 @@
 
         <div class="newscard">
             <div class="card">
-                <div class="card-image">
-                    <figure class="image">
-                        <img src="">
-                    </figure>
-                </div>
+
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
@@ -315,7 +213,7 @@
 
 
                         <figure class="image">
-                            <img src="/images/feb16.PNG" style="width:auto; max-height: 50vh;">
+                            <img src="static/images/feb16.PNG" style="width:auto; max-height: 50vh;">
                         </figure>
 
 
@@ -328,11 +226,7 @@
 
         <div class="newscard">
             <div class="card">
-                <div class="card-image">
-                    <figure class="image">
-                        <img src="">
-                    </figure>
-                </div>
+
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
@@ -353,7 +247,7 @@
 
 
                         <figure class="image">
-                            <img src="/images/jan9.PNG" style="width:auto; max-height: 50vh;">
+                            <img src="static/images/jan9.PNG" style="width:auto; max-height: 50vh;">
                         </figure>
 
 
@@ -366,11 +260,7 @@
 
         <div class="newscard">
             <div class="card">
-                <div class="card-image">
-                    <figure class="image">
-                        <img src="">
-                    </figure>
-                </div>
+
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
@@ -390,7 +280,7 @@
 
 
                         <figure class="image">
-                            <img src="/images/Nov172023.png" style="width:auto; max-height: 50vh;">
+                            <img src="static/images/Nov172023.png" style="width:auto; max-height: 50vh;">
                         </figure>
 
 
@@ -409,11 +299,7 @@
 
         <div class="newscard">
             <div class="card">
-                <div class="card-image">
-                    <figure class="image">
-                        <img src="">
-                    </figure>
-                </div>
+
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
@@ -440,7 +326,7 @@
 
 
                         <figure class="image">
-                            <img src="/images/oct12.jpg" style="width:auto; max-height: 50vh;">
+                            <img src="static/images/oct12.jpg" style="width:auto; max-height: 50vh;">
                         </figure>
 
 
@@ -455,11 +341,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -485,7 +366,7 @@
 
 
                             <figure class="image">
-                                <img src="/images/Sept13.jpg" style="width:auto; max-height: 50vh;">
+                                <img src="static/images/Sept13.jpg" style="width:auto; max-height: 50vh;">
                             </figure>
 
 
@@ -498,11 +379,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -522,7 +398,7 @@
     
     
                             <figure class="image">
-                                <img src="/images/aug23.PNG" style="width:auto; max-height: 50vh;">
+                                <img src="static/images/aug23.PNG" style="width:auto; max-height: 50vh;">
                             </figure>
     
     
@@ -536,11 +412,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -562,7 +433,7 @@
 
 
                             <figure class="image">
-                                <img src="/images/July16.jpg" style="width:auto; max-height: 50vh;">
+                                <img src="static/images/July16.jpg" style="width:auto; max-height: 50vh;">
                             </figure>
 
 
@@ -580,11 +451,6 @@
 
             <div class="newscard">
                 <div class="card ">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -620,7 +486,7 @@
 
 
                             <figure class="image">
-                                <img src="/images/other/Pancner.png" style="width:auto; max-height: 50vh;">
+                                <img src="static/images/other/Pancner.png" style="width:auto; max-height: 50vh;">
                             </figure>
 
 
@@ -636,11 +502,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -669,7 +530,7 @@
 
 
                             <figure class="image">
-                                <img src="/images/may26.jpg" style="width:auto; max-height: 50vh;">
+                                <img src="static/images/may26.jpg" style="width:auto; max-height: 50vh;">
                             </figure>
                             <br>
 
@@ -683,11 +544,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -718,7 +574,7 @@
 
 
                             <figure class="image">
-                                <img src="/images/may22.png" style="width:auto; max-height: 50vh;">
+                                <img src="static/images/may22.png" style="width:auto; max-height: 50vh;">
                             </figure>
                             <br>
 
@@ -733,11 +589,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -778,7 +629,7 @@
 
 
                             <figure class="image">
-                                <img src="/images/may16.jpg" style="width:auto; max-height: 50vh;">
+                                <img src="static/images/may16.jpg" style="width:auto; max-height: 50vh;">
                             </figure>
                             <br>
 
@@ -791,11 +642,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -829,7 +675,7 @@
 
 
                             <figure class="image">
-                                <img src="/images/gazette.png" style="width:auto; max-height: 50vh;">
+                                <img src="static/images/gazette.png" style="width:auto; max-height: 50vh;">
                             </figure>
                             <br>
 
@@ -843,11 +689,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -875,7 +716,7 @@
 
 
                             <figure class="image">
-                                <img src="/images/artexhibit.jpg" style="width:auto; max-height: 50vh;">
+                                <img src="static/images/artexhibit.jpg" style="width:auto; max-height: 50vh;">
                             </figure>
                             <br>
 
@@ -888,11 +729,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -918,7 +754,7 @@
 
 
                             <figure class="image">
-                                <img src="/images/hopesharborart.jpg" style="width:auto; max-height: 50vh;">
+                                <img src="static/images/hopesharborart.jpg" style="width:auto; max-height: 50vh;">
                             </figure>
                             <br>
 
@@ -931,11 +767,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -958,7 +789,7 @@
 
 
                             <figure class="image">
-                                <img src="/images/hopesharborimg.jpg" style="width:auto; max-height: 50vh;">
+                                <img src="static/images/hopesharborimg.jpg" style="width:auto; max-height: 50vh;">
                             </figure>
                             <br>
 
@@ -971,11 +802,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -1019,11 +845,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -1042,7 +863,7 @@
     
     
                             <figure class="image">
-                                <img src="/images/apr12.PNG" style="width:auto; max-height: 50vh;">
+                                <img src="static/images/apr12.PNG" style="width:auto; max-height: 50vh;">
                             </figure>
     
     
@@ -1056,11 +877,6 @@
 
             <div class="newscard">
                 <div class="card">
-                    <div class="card-image">
-                        <figure class="image">
-                            <img src="">
-                        </figure>
-                    </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
@@ -1114,14 +930,14 @@
                             <div class="column is-one-third center">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/NewsImg1.png" style="width:auto; max-height: 50vh;">
+                                        <img src="static/images/NewsImg1.png" style="width:auto; max-height: 50vh;">
                                     </figure>
                                 </div>
                             </div>
                             <div class="column is-one-third center">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/NewsImg2.png" style="width:auto; max-height: 50vh;">
+                                        <img src="static/images/NewsImg2.png" style="width:auto; max-height: 50vh;">
                                     </figure>
                                 </div>
                             </div>
@@ -1156,47 +972,4 @@
 
         </div>
 
-        <footer class="footer">
-            <div class=" center_horizontal has-text-centered">
-
-                <p>
-                    <strong>Contact Us at: </strong> <a href="mailto:arthealsfw@gmail.com"
-                        target="_blank">arthealsfw@gmail.com</a>
-                </p>
-
-            </div>
-
-
-
-            <div class=" center_horizontal has-text-centered" style="padding-top:2vh">
-
-                <div class="field is-grouped">
-                    <p class="control">
-                        <a data-cold class="bd-tw-button button is-link"
-                            href="https://www.facebook.com/profile.php?id=100090468360449">
-                            <span class="icon">
-                                <i class="fab fa-facebook"></i>
-                            </span>
-                        </a>
-
-                        <a data-cold class="bd-tw-button button is-link" href="https://twitter.com/Arthealsfw">
-                            <span class="icon">
-                                <i class="fab fa-twitter"></i>
-                            </span>
-                        </a>
-                    </p>
-                </div>
-            </div>
-
-            <div class=" center_horizontal has-text-centered" style="padding-top:2vh">
-
-                <p>
-                    <strong>Art Heals</strong>
-                    <br> Copyright 2023
-                </p>
-
-            </div>
-
-        </footer>
-        <script type="text/javascript" src="/burger.js"></script>
-</body>
+{% endblock %}

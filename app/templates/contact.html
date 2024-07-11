@@ -1,0 +1,108 @@
+<head>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav {
+            background-color: rgba(0, 0, 0, .4);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+            min-height: 10vh;
+        }
+
+        .custom-shadow:hover {
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .navbar-menu a {
+            color: white;
+            font-size: 17px;
+        }
+    </style>
+    <script type="module" src="index.js"></script>
+    <script>
+        function submit_form() {
+            fetch("https://docs.google.com/forms/d/e/1FAIpQLScTbojQskJ5K0o1kAXe47RsEx-tLTQayZkbuso7ZGYWSvlb3Q/formResponse?entry.1815641398="+document.getElementById('NAMEFIELD').value+"&entry.1747151761="+document.getElementById('PHONEFIELD').value+"&entry.1629016303="+document.getElementById('EMAILFIELD').value+"&entry.826409313="+document.getElementById('MESSAGEFIELD').value+"&submit=Submit").then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                console.log(data);
+            }).catch(function (err) {
+                console.log('Fetch Error :-S', err);
+            });
+            window.alert("Submitted!");
+        }
+        //https://docs.google.com/forms/d/e/1FAIpQLScTbojQskJ5K0o1kAXe47RsEx-tLTQayZkbuso7ZGYWSvlb3Q/formResponse?entry.1815641398=name&entry.1747151761=phone&entry.1629016303=email&entry.826409313=message&submit=Submit
+    </script>
+</head>
+
+{% extends "base.html" %}
+
+
+
+{% block content %}
+    <div class="card-image">
+        <figure class="image " style="background-color: black; ">
+            <div class="parallax"></div>
+
+        </figure>
+    </div>
+    <div class="is-overlay center">
+        <div class="center_horizontal" style="display:block; padding-top: 16vh">
+            <p class="title is-1 has-text-light center">
+                Contact Us
+            </p>
+
+        </div>
+
+    </div>
+    <div class="is-overlay center">
+
+
+
+        <div class="center" style="width: 50%; padding-top: 10vh;">
+            <div class="box">
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input id="NAMEFIELD" class="input" type="text" placeholder="Your Name">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Phone</label>
+                    <div class="control">
+                        <input id="PHONEFIELD" class="input" type="text" placeholder="(000)-000-000">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input id="EMAILFIELD" class="input" type="email" placeholder="joe@gmail.com">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="field">
+                    <label class="label">Message</label>
+                    <div class="control">
+                        <input id="MESSAGEFIELD" class="input is-primary" type="text"
+                            placeholder="Type your message here">
+                    </div>
+                </div>
+
+                <button class="button is-primary center" onclick="submit_form()">
+                    Submit
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

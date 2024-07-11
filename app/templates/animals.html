@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Art Heals</title>
-    <link rel="icon" type="image/x-icon" href="images/logo.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
-    <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="main.css">
     <style>
         html {
             scroll-behavior: smooth;
@@ -70,88 +57,14 @@
             height: auto;
         }
     </style>
-    <script type="module" src="index.js"></script>
-    <script type="module" src="main.js"></script>
+    <script type="module" src="static/index.js"></script>
+    <script type="module" src="static/main.js"></script>
 
 </head>
 
+{% extends "base.html" %}
 
-<body>
-
-    <div class="is-overlay">
-        <nav class="nav navbar is-transparent is-fixed-top">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="/index.html">
-                    <img src="images/logo.png" style="border-radius: 5px; max-height: 60px">
-                </a>
-                <a role="button" class="navbar-burger burger nav-toggle" onclick="toggleBurger()" aria-label="menu"
-                    aria-expanded="false" style="width:10vh; height:10vh">
-                    <span aria-hidden="true" style="color:white"></span>
-                    <span aria-hidden="true" style="color:white"></span>
-                    <span aria-hidden="true" style="color:white"></span>
-                </a>
-
-            </div>
-
-
-
-
-            <div class="navbar-menu nav-menu" style="background-color: rgba(0, 0, 0, 0);">
-                <div class="navbar-start">
-                    <a class="navbar-item" href="index.html">
-                        Home
-                    </a>
-                    <a class="navbar-item" href="contact.html">
-                        Contact Us
-                    </a>
-                    <a class="navbar-item" href="meet-the-team.html">
-                        Meet The Team
-                    </a>
-                    <a class="navbar-item" href="news.html">
-                        News
-                    </a>
-                    <a class="navbar-item" href="donate.html">
-                        Donate
-                    </a>
-                    <a class="navbar-item" href="store.html">
-                        Store
-                    </a>
-
-
-                </div>
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="field is-grouped">
-                            <p class="control">
-                                <a data-cold class="bd-tw-button button is-link"
-                                    href="https://www.facebook.com/profile.php?id=100090468360449">
-                                    <span class="icon">
-                                        <i class="fab fa-facebook"></i>
-                                    </span>
-                                    <span>
-                                        Facebook
-                                    </span>
-                                </a>
-
-                                <a data-cold class="bd-tw-button button is-link" href="https://twitter.com/Arthealsfw">
-                                    <span class="icon">
-                                        <i class="fab fa-twitter"></i>
-                                    </span>
-                                    <span>
-                                        Twitter
-                                    </span>
-                                </a>
-
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-    </div>
-
+{% block content %}
 
     <section class="hero is-light">
         <div class="hero-body center">
@@ -160,7 +73,7 @@
                     <h1 class="title is-1 is-uppercase">Works</h1>
 
                 </a>
-                <a class="center_horizontal" href="store.html" style="margin-top: 1vh">
+                <a class="center_horizontal" href="store" style="margin-top: 1vh">
                     <h1 class="subtitle is-uppercase text-decoration: underline;" style="color: hsl(171, 100%, 41%);">
                         Back to Store</h1>
 
@@ -171,7 +84,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/azureflock.png">
+                                        <img src="static/images/animals/azureflock.png">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -197,7 +110,7 @@
                                 <div class="box">
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="images/animals/azureflock.png">
+                                            <img src="static/images/animals/azureflock.png">
                                         </figure>
                                     </div>
                                     <div class="card-content">
@@ -226,7 +139,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/saola.png">
+                                        <img src="static/images/animals/saola.png">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -251,7 +164,7 @@
                                 <div class="box">
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="images/animals/saola.png">
+                                            <img src="static/images/animals/saola.png">
                                         </figure>
                                     </div>
                                     <div class="card-content">
@@ -283,7 +196,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/mangrove.png">
+                                        <img src="static/images/animals/mangrove.png">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -307,7 +220,7 @@
                                 <div class="box">
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="images/animals/mangrove.png">
+                                            <img src="static/images/animals/mangrove.png">
                                         </figure>
                                     </div>
                                     <div class="card-content">
@@ -337,7 +250,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/skull.png">
+                                        <img src="static/images/animals/skull.png">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -362,7 +275,7 @@
                                 <div class="box">
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="images/animals/skull.png">
+                                            <img src="static/images/animals/skull.png">
                                         </figure>
                                     </div>
                                     <div class="card-content">
@@ -388,7 +301,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/pride.png">
+                                        <img src="static/images/animals/pride.png">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -406,7 +319,7 @@
                                 <div class="box">
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="images/animals/pride.png">
+                                            <img src="static/images/animals/pride.png">
                                         </figure>
                                     </div>
                                     <div class="card-content">
@@ -426,7 +339,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/canislupus.png">
+                                        <img src="static/images/animals/canislupus.png">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -443,7 +356,7 @@
                                 <div class="box">
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="images/animals/canislupus.png">
+                                            <img src="static/images/animals/canislupus.png">
                                         </figure>
                                     </div>
                                     <div class="card-content">
@@ -465,7 +378,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/tiger.png">
+                                        <img src="static/images/animals/tiger.png">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -487,7 +400,7 @@
                                 <div class="box">
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="images/animals/tiger.png">
+                                            <img src="static/images/animals/tiger.png">
                                         </figure>
                                     </div>
                                     <div class="card-content">
@@ -511,7 +424,7 @@
                             <div class="card" style="margin:5vh">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/wind.png">
+                                        <img src="static/images/animals/wind.png">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -532,7 +445,7 @@
                                 <div class="box">
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="images/animals/wind.png">
+                                            <img src="static/images/animals/wind.png">
                                         </figure>
                                     </div>
                                     <div class="card-content">
@@ -555,7 +468,7 @@
                         <div class="card" style="margin:5vh">
                             <div class="card-image">
                                 <figure class="image">
-                                    <img src="images/animals/atelopus.jpg">
+                                    <img src="static/images/animals/atelopus.jpg">
                                 </figure>
                             </div>
                             <div class="card-content">
@@ -574,7 +487,7 @@
                             <div class="box">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/atelopus.jpg">
+                                        <img src="static/images/animals/atelopus.jpg">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -604,7 +517,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/iguana.jpg">
+                                        <img src="static/images/animals/iguana.jpg">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -624,7 +537,7 @@
                                 <div class="box">
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="images/animals/iguana.jpg">
+                                            <img src="static/images/animals/iguana.jpg">
                                         </figure>
                                     </div>
                                     <div class="card-content">
@@ -652,7 +565,7 @@
                             <div class="card" style="margin:5vh">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/sumatran.jpg">
+                                        <img src="static/images/animals/sumatran.jpg">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -671,7 +584,7 @@
                                 <div class="box">
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="images/animals/sumatran.jpg">
+                                            <img src="static/images/animals/sumatran.jpg">
                                         </figure>
                                     </div>
                                     <div class="card-content">
@@ -697,7 +610,7 @@
                         <div class="card" style="margin:5vh">
                             <div class="card-image">
                                 <figure class="image">
-                                    <img src="images/animals/emerald.jpg">
+                                    <img src="static/images/animals/emerald.jpg">
                                 </figure>
                             </div>
                             <div class="card-content">
@@ -716,7 +629,7 @@
                             <div class="box">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/emerald.jpg">
+                                        <img src="static/images/animals/emerald.jpg">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -744,7 +657,7 @@
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="images/animals/crab.jpg">
+                                        <img src="static/images/animals/crab.jpg">
                                     </figure>
                                 </div>
                                 <div class="card-content">
@@ -764,7 +677,7 @@
                                 <div class="box">
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="images/animals/crab.jpg">
+                                            <img src="static/images/animals/crab.jpg">
                                         </figure>
                                     </div>
                                     <div class="card-content">
@@ -805,48 +718,4 @@
         </div>
     </section>
 
-
-    <footer class="footer">
-        <div class=" center_horizontal has-text-centered">
-
-            <p>
-                <strong>Contact Us at: </strong> <a href="mailto:arthealsfw@gmail.com"
-                    target="_blank">arthealsfw@gmail.com</a>
-            </p>
-
-        </div>
-
-
-
-        <div class=" center_horizontal has-text-centered" style="padding-top:2vh">
-
-            <div class="field is-grouped">
-                <p class="control">
-                    <a data-cold class="bd-tw-button button is-link"
-                        href="https://www.facebook.com/profile.php?id=100090468360449">
-                        <span class="icon">
-                            <i class="fab fa-facebook"></i>
-                        </span>
-                    </a>
-
-                    <a data-cold class="bd-tw-button button is-link" href="https://twitter.com/Arthealsfw">
-                        <span class="icon">
-                            <i class="fab fa-twitter"></i>
-                        </span>
-                    </a>
-                </p>
-            </div>
-        </div>
-
-        <div class=" center_horizontal has-text-centered" style="padding-top:2vh">
-
-            <p>
-                <strong>Art Heals</strong>
-                <br> Copyright 2023
-            </p>
-
-        </div>
-
-    </footer>
-    <script type="text/javascript" src="/burger.js"></script>
-</body>
+{% endblock %}

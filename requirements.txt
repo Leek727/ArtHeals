@@ -1,0 +1,7 @@
+pymongo[srv]
+flask
+flask-wtf
+flask-sqlalchemy
+flask-migrate
+Werkzeug
+flask-login
