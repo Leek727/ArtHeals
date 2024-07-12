@@ -1,0 +1,721 @@
+
+<head>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav {
+            background-color: rgba(0, 0, 0, .4);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+            min-height: 10vh;
+        }
+
+        .custom-shadow:hover {
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .navbar-menu a {
+            color: white;
+            font-size: 17px;
+        }
+
+        .card {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .card {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            box-shadow: 0px 0px 5px #ccc;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .card .content {
+            height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card.expanded .content {
+            height: auto;
+        }
+    </style>
+    <script type="module" src="static/index.js"></script>
+    <script type="module" src="static/main.js"></script>
+
+</head>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+    <section class="hero is-light">
+        <div class="hero-body center">
+            <div class="container">
+                <a class="center_horizontal" style="margin-top: 10vh">
+                    <h1 class="title is-1 is-uppercase">Works</h1>
+
+                </a>
+                <a class="center_horizontal" href="store" style="margin-top: 1vh">
+                    <h1 class="subtitle is-uppercase text-decoration: underline;" style="color: hsl(171, 100%, 41%);">
+                        Back to Store</h1>
+
+                </a>
+                <div class="columns is-desktop">
+                    <div class="column is-one-third">
+                        <a id="modal-button0">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/azureflock.png">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Azure Flock</h2>
+                                    <p class="subtitle is-6">Sold</p>
+                                    <p class="subtitle is-6">Sophia Zhang, Charcoal and Pastel Chalk, 14X18 in,
+                                        Scholastic Art Award,
+                                        Silver
+                                        Key</p>
+                                    <p class="content">The Spix’s macaw is a species of macaw native to Brazil. Due to
+                                        deforestation, habitat loss, and illegal poaching, they are critically
+                                        endangered
+                                        and nearing extinction, with only about 160 left in captivity.</p>
+
+                                </div>
+                            </div>
+
+                        </a>
+
+                        <div class="modal" id="my-modal0">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="static/images/animals/azureflock.png">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Azure Flock</h2>
+                                        <p class="subtitle is-6">Sold</p>
+                                        <p class="subtitle is-6">Sophia Zhang, Charcoal and Pastel Chalk, 14X18 in,
+                                            Scholastic Art Award,
+                                            Silver Key</p>
+                                        <p class="content">The Spix’s macaw is a species of macaw native to Brazil. Due
+                                            to deforestation, habitat loss, and illegal poaching, they are critically
+                                            endangered and nearing extinction, with only about 160 left in captivity.
+                                        </p>
+                                        <button class="button is-primary" id="modal-close0">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="column is-one-third">
+                        <a id="modal-button1">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/saola.png">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Saola</h2>
+                                    <p class="subtitle is-6">SOLD</p>
+                                    <p class="subtitle is-6">Sophia Zhang, Charcoal and Pastel Chalk, 14X18 in,
+                                        Best in Show Award</p>
+                                    <p class="content">The saola, also known as the spindlehorn, Asian unicorn, or vu
+                                        kuang
+                                        ox, is one of the world's rarest large mammals. Saola resemble antelope and
+                                        inhabit
+                                        the Annamite Mountains of Vietnam and Laos. They are critically endangered, as
+                                        they
+                                        are rarely seen in the wild, with none existing in captivity.</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="modal" id="my-modal1">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="static/images/animals/saola.png">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Saola</h2>
+                                        <p class="subtitle is-6">SOLD</p>
+                                        <p class="subtitle is-6">Sophia Zhang, Charcoal and Pastel Chalk, 14X18 in,
+                                            Best in Show Award</p>
+                                        <p class="content">The saola, also known as the spindlehorn, Asian unicorn, or
+                                            vu
+                                            kuang
+                                            ox, is one of the world's rarest large mammals. Saola resemble antelope and
+                                            inhabit
+                                            the Annamite Mountains of Vietnam and Laos. They are critically endangered,
+                                            as
+                                            they
+                                            are rarely seen in the wild, with none existing in captivity.</p>
+                                        <button class="button is-primary" id="modal-close1">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="column is-one-third">
+                        <a id="modal-button2">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/mangrove.png">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Mangrove Forest</h2>
+                                    <p class="subtitle is-6">Sold</p>
+                                    <p class="subtitle is-6">Sophia Zhang, Charcoal and Pastel Chalk, 14X18 in</p>
+                                    <p class="content">Mangroves are trees or shrubs that grow in intertidal regions off
+                                        tropical and subtropical coastlines. They are crucial to ecosystems, stabilizing
+                                        coastlines and serving as a habitat to many species of aquatic wildlife,
+                                        including
+                                        parrotfish, which seek shelter and protection within the underwater roots of
+                                        mangrove trees. </p>
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <div class="modal" id="my-modal2">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="static/images/animals/mangrove.png">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Mangrove Forest</h2>
+                                        <p class="subtitle is-6">Sold</p>
+                                        <p class="subtitle is-6">Sophia Zhang, Charcoal and Pastel Chalk, 14X18 in</p>
+                                        <p class="content">Mangroves are trees or shrubs that grow in intertidal regions
+                                            off
+                                            tropical and subtropical coastlines. They are crucial to ecosystems,
+                                            stabilizing
+                                            coastlines and serving as a habitat to many species of aquatic wildlife,
+                                            including
+                                            parrotfish, which seek shelter and protection within the underwater roots of
+                                            mangrove trees. </p>
+                                        <button class="button is-primary" id="modal-close2">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="columns is-desktop">
+                    <div class="column is-one-third">
+                        <a id="modal-button3">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/skull.png">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Smilondon Skull</h2>
+                                    <p class="subtitle is-6">$150</p>
+                                    <p class="subtitle is-6">Sophia Zhang, Color Pencil, 14X18 in</p>
+                                    <p class="content">Smilodon is a genus of extinct prehistoric predators, including
+                                        the
+                                        saber-toothed tiger. The skull of a saber-toothed cat can measure up to 35 cm
+                                        long,
+                                        with canines up to 18 cm long.
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+
+
+
+                        <div class="modal" id="my-modal3">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="static/images/animals/skull.png">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Smilondon Skull</h2>
+                                        <p class="subtitle is-6">$150</p>
+                                        <p class="subtitle is-6">Sophia Zhang, Color Pencil, 14X18 in</p>
+                                        <p class="content">Smilodon is a genus of extinct prehistoric predators,
+                                            including the
+                                            saber-toothed tiger. The skull of a saber-toothed cat can measure up to 35
+                                            cm long,
+                                            with canines up to 18 cm long.
+                                        </p>
+                                        <button class="button is-primary" id="modal-close3">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="column is-one-third">
+                        <a id="modal-button4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/pride.png">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Pride</h2>
+                                    <p class="subtitle is-6">$100</p>
+                                    <p class="subtitle is-6">Sophia Zhang, Scratchboard, 8X11 in</p>
+
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="modal" id="my-modal4">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="static/images/animals/pride.png">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Pride</h2>
+                                        <p class="subtitle is-6">$100</p>
+                                        <p class="subtitle is-6">Sophia Zhang, Scratchboard, 8X11 in</p>
+
+                                        <button class="button is-primary" id="modal-close4">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="column is-one-third">
+                        <a id="modal-button5">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/canislupus.png">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Canis lupus</h2>
+                                    <p class="subtitle is-6">$100</p>
+                                    <p class="subtitle is-6">Sophia Zhang, drawing, 13X20 in</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <div class="modal" id="my-modal5">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="static/images/animals/canislupus.png">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Canis lupus</h2>
+                                        <p class="subtitle is-6">$100</p>
+                                        <p class="subtitle is-6">Sophia Zhang, drawing, 13X20 in</p>
+                                        <button class="button is-primary" id="modal-close5">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="columns is-desktop">
+                    <div class="column is-one-third">
+                        <a id="modal-button6">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/tiger.png">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">The Tiger</h2>
+                                    <p class="subtitle is-6">$200</p>
+                                    <p class="subtitle is-6">Sophia Zhang, Color Pencil, 12X15 in, Scholastic Art Award,
+                                        Gold
+                                        Key</p>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+
+
+
+                        <div class="modal" id="my-modal6">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="static/images/animals/tiger.png">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">The Tiger</h2>
+                                        <p class="subtitle is-6">$200</p>
+                                        <p class="subtitle is-6">Sophia Zhang, Color Pencil, 12X15 in, Scholastic Art
+                                            Award,
+                                            Gold
+                                            Key</p>
+                                        </p>
+                                        <button class="button is-primary" id="modal-close6">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="column is-one-third">
+                        <a id="modal-button7">
+                            <div class="card" style="margin:5vh">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/wind.png">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Running in the Wind</h2>
+                                    <p class="subtitle is-6">$150</p>
+                                    <p class="subtitle is-6">Sophia Zhang, watercolor painting, 8x10 in, Scholastic Art
+                                        Award,
+                                        Silver Key </p>
+
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <div class="modal" id="my-modal7">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="static/images/animals/wind.png">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Running in the Wind</h2>
+                                        <p class="subtitle is-6">$150</p>
+                                        <p class="subtitle is-6">Sophia Zhang, watercolor painting, 8x10 in, Scholastic
+                                            Art
+                                            Award,
+                                            Silver Key </p>
+                                        <button class="button is-primary" id="modal-close7">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="modal-background"></button>
+                        </div>
+
+                    </div>
+
+                    <a id="modal-button8">
+                        <div class="card" style="margin:5vh">
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img src="static/images/animals/atelopus.jpg">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="title is-4">Atelopus varius</h2>
+                                <p class="subtitle is-6">$200</p>
+                                <p class="subtitle is-6">Sophia Zhang, Charcoal and Chalk Pastel, 12X15 in </p>
+
+                            </div>
+                        </div>
+                    </a>
+
+
+                    <div class="modal" id="my-modal8">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <div class="box">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/atelopus.jpg">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Atelopus varius</h2>
+                                    <p class="subtitle is-6">$200</p>
+                                    <p class="subtitle is-6">Sophia Zhang, Charcoal and Chalk Pastel, 12X15 in </p>
+                                    <p>The Costa Rican variable harlequin toad, otherwise known by its scientific name
+                                        Atelopus varius or simply the clown frog, is a species of poisonous amphibians
+                                        native to the Talamanca Mountains, from Central Panama all the way up to Costa
+                                        Rica. Dramatic declines in Atelopus varius populations began in the late
+                                        1980s, where they continue to rapidly decline. The variable harlequin frog is
+                                        categorized as critically endangered by the International Union for Conservation
+                                        of Nature, but breeding programs such as PARC are giving these frogs hope. </p>
+                                    <button class="button is-primary" id="modal-close8">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="modal-background"></button>
+                    </div>
+
+                </div>
+
+
+                <div class="columns is-desktop">
+                    <div class="column is-one-third">
+                        <a id="modal-button9">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/iguana.jpg">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Fiji Crested Iguana</h2>
+                                    <p class="subtitle is-6">$200</p>
+                                    <p class="subtitle is-6">Sophia Zhang, Charcoal and Chalk Pastel, 12X15 in</p>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+
+
+
+                        <div class="modal" id="my-modal9">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="static/images/animals/iguana.jpg">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Fiji Crested Iguana</h2>
+                                        <p class="subtitle is-6">$200</p>
+                                        <p class="subtitle is-6">Sophia Zhang, Charcoal and Chalk Pastel, 12X15 in</p>
+                                        </p>
+                                        <p>The Fiji crested iguana is a critically endangered species of iguana native
+                                            to some northwestern islands of the Fijiian archipelago, where it makes its
+                                            habitat in the dry forest. They were originally found throughout 14 Fijian
+                                            islands, but today are only found in 3, with 98% of all remaining iguanas
+                                            (less than 6,000) living on just one island. The Fijian crested iguana is
+                                            unique to Fiji, and today survives on only a few islands in western Fiji.
+                                        </p>
+                                        <button class="button is-primary" id="modal-close9">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="column is-one-third">
+                        <a id="modal-button10">
+                            <div class="card" style="margin:5vh">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/sumatran.jpg">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Wading Sumatran</h2>
+                                    <p class="subtitle is-6">Sold</p>
+                                    <p class="subtitle is-6">Sophia Zhang, Charcoal and Chalk Pastel, 18X24 in </p>
+
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <div class="modal" id="my-modal10">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="static/images/animals/sumatran.jpg">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Wading Sumatran</h2>
+                                        <p class="subtitle is-6">Sold</p>
+                                        <p class="subtitle is-6">Sophia Zhang, Charcoal and Chalk Pastel, 18X24 in </p>
+                                        <p>The Sumatran tiger is a species of tiger native to the Indonesian island of
+                                            Sumatra, and is the only surviving tiger species in the Sunda Islands.
+                                            Habitat loss is the main cause the declining Sumatran tiger population, with
+                                            their native rainforests being cut down for agriculture, plantations, and
+                                            settlement. On many parts of the island, illegal timber harvesting and
+                                            forest conversion are out of control.</p>
+                                        <button class="button is-primary" id="modal-close10">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="modal-background"></button>
+                        </div>
+
+                    </div>
+
+                    <a id="modal-button11">
+                        <div class="card" style="margin:5vh">
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img src="static/images/animals/emerald.jpg">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="title is-4">Hine’s Emerald Dragonfly</h2>
+                                <p class="subtitle is-6">Sold</p>
+                                <p class="subtitle is-6">Sophia Zhang, Charcoal and Chalk Pastel, 8X10 in</p>
+
+                            </div>
+                        </div>
+                    </a>
+
+
+                    <div class="modal" id="my-modal11">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <div class="box">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/emerald.jpg">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Hine’s Emerald Dragonfly</h2>
+                                    <p class="subtitle is-6">Sold</p>
+                                    <p class="subtitle is-6">Sophia Zhang, Charcoal and Chalk Pastel, 8X10 in </p>
+                                    <p>The Hine's emerald is an endangered dragonfly species found throughout the United
+                                        States and Canada. Populations exist in Illinois, Michigan, Missouri, Ontario,
+                                        and Wisconsin. Larvae are found in shallow, flowing water in fens
+                                        and marshes. Major threats to the species include habitat loss and alteration.
+                                        Luckily, the species is legally protected in both the United States and Canada
+                                    </p>
+                                    <button class="button is-primary" id="modal-close11">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="modal-background"></button>
+                    </div>
+
+                </div>
+
+                <div class="columns is-desktop">
+                    <div class="column is-one-third">
+                        <a id="modal-button12">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="static/images/animals/crab.jpg">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4">Singapore Freshwater Crabs</h2>
+                                    <p class="subtitle is-6">Sold</p>
+                                    <p class="subtitle is-6">Sophia Zhang, Charcoal and Chalk Pastel, 8X10 in</p>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+
+
+
+                        <div class="modal" id="my-modal12">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <div class="box">
+                                    <div class="card-image">
+                                        <figure class="image">
+                                            <img src="static/images/animals/crab.jpg">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-4">Singapore Freshwater Crabs</h2>
+                                        <p class="subtitle is-6">Sold</p>
+                                        <p class="subtitle is-6">Sophia Zhang, Charcoal and Chalk Pastel, 8X10 in</p>
+                                        </p>
+                                        <p>The Singapore freshwater crab is a critically endangered species of
+                                            freshwater crab native to Singapore. It’s on the smaller side, only growing
+                                            to a size of 30 mm wide. It is a primarily nocturnal species that lives in
+                                            streams in the forest, feeding on detritus and worms that live in the muddy
+                                            stream bed. It has only ever been recorded from two locations in Singapore.
+
+                                        </p>
+                                        <button class="button is-primary" id="modal-close12">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,5 +1,7 @@
 
+
 <head>
+
     <style>
         html {
             scroll-behavior: smooth;
@@ -37,6 +39,7 @@
             transition: all 0.3s ease-in-out;
         }
 
+
         .card:hover {
             box-shadow: 0px 0px 5px #ccc;
         }
@@ -56,13 +59,23 @@
         .card.expanded .content {
             height: auto;
         }
+
+        @media (min-width: 768px) {
+            .large_card {
+                width: 30vw;
+            }
+        }
+
     </style>
     <script type="module" src="static/index.js"></script>
     <script type="module" src="static/main.js"></script>
-
+    
 </head>
 
+
 {% extends "base.html" %}
+
+
 
 {% block content %}
 
@@ -78,54 +91,64 @@
                         Back to Store</h1>
 
                 </a>
-                <div class="columns is-multiline is-desktop">
-                    {% for card in cards %}
+                <div class="columns is-multiline is-desktop ">
+                {% for i in range(11) %}
                     <div class="column center_horizontal">
-                        <a id="modal-button{{card['index']}}">
+                        <a id="modal-button{{i}}">
                             <div class="card">
                                 <div class="card-image">
                                     <figure class="image">
-                                        <img src="{{card['src']}}">
+                                        <img src="/static/images/store0.png">
                                     </figure>
                                 </div>
                                 <div class="card-content">
-                                    <h2 class="title is-4">{{card["title"]}}</h2>
-                                    <p class="subtitle is-6">{{card["price"]}}</p>
-                                    <p class="subtitle is-6">{{card["desc"]}}</p>
-                                    <p class="content">
-                                        {{card["content"]}}
-                                    </p>
+                                    <h2 class="title is-4">Sonder</h2>
+                                    <p class="subtitle is-6">$200</p>
+                                    <p class="subtitle is-6">Sophia Zhang, Acrylic Painting, 9X12 in, Scholastic Art Award,
+                                        Gold Key</p>
+                                    <p class="content">I created this painting to symbolize the philosophy of profound
+                                        pondering and attitude of contemplation. Different people have each have
+                                        different
+                                        understandings of art. You can interpret the meaning of this painting in your
+                                        own
+                                        way. </p>
                                 </div>
                             </div>
-
                         </a>
 
-                        <div class="modal" id="my-modal{{card['index']}}">
+
+                        <div class="modal" id="my-modal{{i}}">
                             <div class="modal-background"></div>
                             <div class="modal-content">
                                 <div class="box">
                                     <div class="card-image">
                                         <figure class="image">
-                                            <img src="{{card['src']}}">
+                                            <img src="/static/images/store0.png">
                                         </figure>
                                     </div>
                                     <div class="card-content">
-                                        <h2 class="title is-4">{{card["title"]}}</h2>
-                                        <p class="subtitle is-6">{{card["price"]}}</p>
-                                        <p class="subtitle is-6">{{card["desc"]}}</p>
-                                        <p class="content">
-                                            {{card["content"]}}
-                                        </p>
-                                        <button class="button is-primary" id="modal-close{{card['index']}}">Close</button>
+                                        <h2 class="title is-4">Sonder</h2>
+                                        <p class="subtitle is-6">$200</p>
+                                        <p class="subtitle is-6">Sophia Zhang, Acrylic Painting, 9X12 in, Scholastic Art
+                                            Award,
+                                            Gold Key</p>
+                                        <p class="content">I created this painting to symbolize the philosophy of
+                                            profound
+                                            pondering and attitude of contemplation. Different people have each have
+                                            different
+                                            understandings of art. You can interpret the meaning of this painting in
+                                            your own
+                                            way. </p>
+                                        <button class="button is-primary" id="modal-close{{i}}">Close</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
     </section>
-
 {% endblock %}

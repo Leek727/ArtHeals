@@ -10,22 +10,39 @@ class AtlasClient():
         ATLAS_URI = os.getenv("ATLAS_URI")
         client = MongoClient(ATLAS_URI)
 
-        db = client['checklist_db']
-        self.checklists = db["checklists"]
+        self.db = client['artheals']
 
-    def add_checklist(self, title, body):
-        insert_result = self.checklists.insert_one({
-            "title": title,
-            "body": body 
-        })
+    def real_category(self, category):
+        if category in ["characters", "animals", "flowers", "other"]:
+            return True
+        print("not a categoryadjfoisdjf")
+        return False
 
-        return insert_result.inserted_id
+    def add_card_list(self, cards, category):
+        if self.real_category(category):
+            insert_result = self.db[category].insert_one({
+                "cards" : cards
+            })
 
-    def fetch_checklist(self, id):
-        return self.checklists.find_one(ObjectId(id))
+            return insert_result.inserted_id
+
+    def get_card_list(self, category):
+        if self.real_category(category):
+            a = list(self.db[category].find())[0]
+            return a["cards"]
+
+    def update_card_list(self, category, card_list):
+        if self.real_category(category):
+            ret = self.db[category].update_one(
+                filter={},
+                update={
+                    "$set" : {
+                        "cards" : card_list
+                    }
+                }
+            )
+            return ret
+        
 
 if __name__ == "__main__":
     client = AtlasClient()
-    #id = client.add_checklist("this is a title", "this is a body")
-    #print(id)
-    print(client.fetch_checklist("668eb7d48a9f3d7a3f26bdd0")["title"])

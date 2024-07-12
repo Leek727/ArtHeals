@@ -14,7 +14,6 @@ mongo_client = AtlasClient()
 
 @app.route("/")
 @app.route("/index")
-@login_required
 def index():
     return render_template("index.html")
 
@@ -36,15 +35,30 @@ def login():
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or urlsplit(next_page).netloc != '':
-            next_page = url_for('index')
-        return redirect(url_for('index'))
+            next_page = url_for('admin')
+        return redirect(url_for('admin'))
     
     return render_template('login.html', title='Sign In', form=form)
+
+@app.route("/admin")
+@login_required
+def admin():
+    return render_template("admin.html")
 
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route("/animals")
+@app.route("/characters")
+@app.route("/flowers")
+@app.route("/other")
+def characters():
+    cards = mongo_client.get_card_list(request.path.replace("/", ""))
+    return render_template("animals.html", cards=cards)
+
+
 
 @app.route("/contact")
 def contact():
@@ -66,19 +80,3 @@ def donate():
 def store():
     return render_template("store.html")
 
-
-@app.route("/animals")
-def animals():
-    return render_template("animals.html")
-
-@app.route("/characters")
-def characters():
-    return render_template("characters.html")
-
-@app.route("/flowers")
-def flowers():
-    return render_template("flowers.html")
-
-@app.route("/other")
-def other():
-    return render_template("other.html")
