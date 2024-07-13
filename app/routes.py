@@ -141,6 +141,47 @@ def update_order():
 
     return jsonify(success=True)
 
+@app.route("/new_card", methods=["POST"])
+def new_card():
+    order = request.json
+    category = order["url"].replace("admin", "").replace("/", "")
+    cards = mongo_client.get_card_list(category) 
+
+    # insert new card into the list
+    new_card = {
+        "index": len(cards),
+        "title": "New Card",
+        "price": "Price",
+        "desc": "Description",
+        "content": "Content",
+        "src": ""
+    }
+
+    cards.insert(0, new_card)
+    mongo_client.update_card_list(category, cards)
+
+    return jsonify(success=True)
+
+
+@app.route("/delete_card", methods=["POST"])
+def delete_card():
+    order = request.json
+    category = order["url"].replace("admin", "").replace("/", "")
+    cards = mongo_client.get_card_list(category) 
+
+    updated_cards = []
+    for card in cards:
+        if card["index"] == int(order["index"]):
+            continue
+        updated_cards.append(card)
+    #print(updated_cards)
+    mongo_client.update_card_list(category, updated_cards)
+
+    return jsonify(success=True)
+
+
+
+
 @app.route("/contact")
 def contact():
     return render_template("contact.html")

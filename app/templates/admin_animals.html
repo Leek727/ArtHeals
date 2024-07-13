@@ -1,4 +1,3 @@
-
 <head>
     <style>
         html {
@@ -61,6 +60,51 @@
     <script type="module" src="static/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
     <script type="module" src="{{ url_for('static', filename='drag.js') }}"></script>
+
+
+    <script>
+        function newCard() {
+            fetch('/new_card', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ url: window.location.pathname })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Created new card!');
+                    window.location.reload();
+                } else {
+                    alert('Failed to create new card!');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred');
+            });
+
+        }
+
+        function deleteCard(card_index) {
+            fetch('/delete_card', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ url: window.location.pathname, index: card_index })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Deleted card!');
+                    window.location.reload();
+                } else {
+                    alert('Failed to delete card!');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred');
+            });
+
+        } 
+    </script>
 </head>
 
 {% extends "base.html" %}
@@ -72,11 +116,18 @@
             <a class="center_horizontal" style="margin-top: 10vh">
                 <h1 class="title is-1 is-uppercase">Works</h1>
             </a>
-            <a class="center_horizontal" href="store" style="margin-top: 1vh">
+            <a class="center_horizontal" href="adminstore" style="margin-top: 1vh">
                 <h1 class="subtitle is-uppercase text-decoration: underline;" style="color: hsl(171, 100%, 41%);">
                     Back to Store</h1>
             </a>
-            <button class="center_horizontal button is-primary" id="update-order-btn">Update Order</button>
+            <div class="center_horizontal m-2">
+                <button class="button is-primary" id="update-order-btn">Update Order</button>
+            </div>
+            <div class="center_horizontal">
+                <button class="button is-primary"
+                    onclick="newCard()">Create
+                    new card</button>
+            </div>
             <div class="columns is-multiline is-desktop">
                 {% for card in cards %}
                 <div class="column center_horizontal">
@@ -84,7 +135,9 @@
                         <div class="card">
                             <div class="card-image">
                                 <figure class="image">
-                                    <img src="{{card['src']}}"  onerror="this.onerror=null; this.src='static/images/placeholder.jpg';" id="card-image{{card['index']}}">
+                                    <img src="{{card['src']}}"
+                                        onerror="this.onerror=null; this.src='static/images/placeholder.jpg';"
+                                        id="card-image{{card['index']}}">
                                 </figure>
                             </div>
                             <div class="card-content">
@@ -92,8 +145,10 @@
                                 <p class="subtitle is-6" contenteditable="true">{{card["price"]}}</p>
                                 <p class="subtitle is-6" contenteditable="true">{{card["desc"]}}</p>
                                 <p class="content" contenteditable="true">{{card["content"]}}</p>
-                                <input type="file" id="image-upload{{card['index']}}" class="image-upload" style="display: none;">
-                                <label for="image-upload{{card['index']}}" class="button is-primary">Upload Image</label>
+                                <input type="file" id="image-upload{{card['index']}}" class="image-upload"
+                                    style="display: none;">
+                                <label for="image-upload{{card['index']}}" class="button is-primary">Upload
+                                    Image</label>
                             </div>
                         </div>
                     </a>
@@ -111,9 +166,12 @@
                                     <p class="subtitle is-6 test" contenteditable="true">{{card["price"]}}</p>
                                     <p class="subtitle is-6 test" contenteditable="true">{{card["desc"]}}</p>
                                     <p class="content" contenteditable="true">{{card["content"]}}</p>
-                                    <input type="file" id="image-upload{{card['index']}}" class="image-upload" style="display: none;">
-                                    <button class="button is-primary" id="save-button{{card['index']}}" data-index="{{card['index']}}">Save</button>
+                                    <input type="file" id="image-upload{{card['index']}}" class="image-upload"
+                                        style="display: none;">
+                                    <button class="button is-primary" id="save-button{{card['index']}}"
+                                        data-index="{{card['index']}}">Save</button>
                                     <button class="button is-primary" id="modal-close{{card['index']}}">Close</button>
+                                    <button onclick="deleteCard({{card['index']}})" class="button is-danger" style="margin-left: 10vh">Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +179,7 @@
                 </div>
                 {% endfor %}
             </div>
-            
+
         </div>
     </div>
 </section>
