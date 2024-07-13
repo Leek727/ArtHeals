@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rich Text Input with Bulma and Quill.js</title>
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <!-- Quill.js CSS -->
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Rich Text Input</h1>
+
+            <form id="rich-text-form" action="/submit" method="POST">
+                <div class="field">
+                    <label class="label">Content</label>
+                    <div id="editor" class="control textarea"></div>
+                    <textarea name="content" style="display: none;"></textarea>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Quill.js JavaScript -->
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var quill = new Quill('#editor', {
+                theme: 'snow'
+            });
+
+            document.querySelector('#rich-text-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                var htmlContent = quill.root.innerHTML;
+                document.querySelector('textarea[name=content]').value = htmlContent;
+                this.submit();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

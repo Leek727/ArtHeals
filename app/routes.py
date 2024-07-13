@@ -180,6 +180,23 @@ def delete_card():
     return jsonify(success=True)
 
 
+@app.route('/submit', methods=['POST'])
+@login_required
+def submit():
+    content = request.form['content']
+    # Here you can process or store the 'content' variable as needed
+    print(f"Received content:\n{content}")
+    return 'Content received successfully!'
+
+@app.route("/adminnews")
+def admin_news():
+    cards = mongo_client.get_card_list("news")
+    return render_template("adminnews.html", cards=cards)
+
+@app.route("/news")
+def news():
+    cards = mongo_client.get_card_list("news")
+    return render_template("news.html", cards=cards)
 
 
 @app.route("/contact")
@@ -190,9 +207,7 @@ def contact():
 def meet_the_team():
     return render_template("meet-the-team.html")
 
-@app.route("/news")
-def news():
-    return render_template("news.html")
+
 
 @app.route("/donate")
 def donate():

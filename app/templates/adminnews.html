@@ -10,11 +10,6 @@
             min-height: 10vh;
         }
 
-        .custom-shadow:hover {
-
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
-
-        }
 
         .navbar-menu a {
             color: white;
@@ -46,15 +41,6 @@
             border-radius: 5px;
         }
 
-        .card .content {
-            height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .card.expanded .content {
-            height: auto;
-        }
     </style>
     <script type="module" src="static/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
@@ -115,7 +101,7 @@
             <a class="center_horizontal" style="margin-top: 10vh">
                 <h1 class="title is-1 is-uppercase">Works</h1>
             </a>
-            <a class="center_horizontal" href="adminstore" style="margin-top: 1vh">
+            <a class="center_horizontal" href="admin" style="margin-top: 1vh">
                 <h1 class="subtitle is-uppercase text-decoration: underline;" style="color: hsl(171, 100%, 41%);">
                     Back to Store</h1>
             </a>
@@ -129,53 +115,40 @@
             </div>
             <div class="columns is-multiline is-desktop">
                 {% for card in cards %}
-                <div class="column center_horizontal">
-                    <a id="modal-button{{card['index']}}">
+                    <div class="newscard" id="{{card['index']}}">
                         <div class="card">
-                            <div class="card-image">
-                                <figure class="image">
-                                    <img src="{{card['src']}}"
-                                        onerror="this.onerror=null; this.src='static/images/placeholder.jpg';"
-                                        id="card-image{{card['index']}}">
-                                </figure>
-                            </div>
+
                             <div class="card-content">
-                                <h2 class="title is-4" contenteditable="true">{{card["title"]}}</h2>
-                                <p class="subtitle is-6" contenteditable="true">{{card["price"]}}</p>
-                                <p class="subtitle is-6" contenteditable="true">{{card["desc"]}}</p>
-                                <p class="content" contenteditable="true">{{card["content"]}}</p>
-                                <input type="file" id="image-upload{{card['index']}}" class="image-upload"
-                                    style="display: none;">
-                                <label for="image-upload{{card['index']}}" class="button is-primary">Upload
-                                    Image</label>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="modal" id="my-modal{{card['index']}}">
-                        <div class="modal-background"></div>
-                        <div class="modal-content">
-                            <div class="box">
-                                <div class="card-image">
-                                    <figure class="image">
-                                        <img src="{{card['src']}}" id="modal-card-image{{card['index']}}">
-                                    </figure>
+                                <div class="media">
+                                    <div class="media-content">
+                                        <p class="title is-4 has-text-primary">{{card["title"]}}
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="card-content">
-                                    <h2 class="title is-4" contenteditable="true">{{card["title"]}}</h2>
-                                    <p class="subtitle is-6 test" contenteditable="true">{{card["price"]}}</p>
-                                    <p class="subtitle is-6 test" contenteditable="true">{{card["desc"]}}</p>
-                                    <p class="content" contenteditable="true">{{card["content"]}}</p>
-                                    <input type="file" id="image-upload{{card['index']}}" class="image-upload"
-                                        style="display: none;">
-                                    <button class="button is-primary" id="save-button{{card['index']}}"
-                                        data-index="{{card['index']}}">Save</button>
-                                    <button class="button is-primary" id="modal-close{{card['index']}}">Close</button>
-                                    <button onclick="deleteCard({{card['index']}})" class="button is-danger" style="margin-left: 10vh">Delete</button>
+
+                                <div class="content">
+                                    {{card["html_content"]|safe}}
+
+                                    <div class="columns is-multiline">
+                                        {% for image_src in card["src_list"] %}
+                                        <div class="column center">
+                                            <div class="card-image">
+                                                <figure class="image">
+                                                    <img src={{image_src}} style="width:auto; max-height: 50vh;">
+                                                </figure>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+
+
+
+                                    <time datetime="AAAA">{{card["date"]}}</time>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                </div>
                 {% endfor %}
             </div>
 

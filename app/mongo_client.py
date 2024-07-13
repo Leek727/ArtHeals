@@ -14,7 +14,7 @@ class AtlasClient():
         self.db = client['artheals']
 
     def real_category(self, category: str) -> bool:
-        if category in ["characters", "animals", "flowers", "other"]:
+        if category in ["characters", "animals", "flowers", "other", "news"]:
             return True
         print("not a categoryadjfoisdjf")
         return False
