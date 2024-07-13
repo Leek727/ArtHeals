@@ -1,0 +1,129 @@
+
+<head>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav {
+            background-color: rgba(0, 0, 0, .4);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+            min-height: 10vh;
+        }
+
+        .custom-shadow:hover {
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .navbar-menu a {
+            color: white;
+            font-size: 17px;
+        }
+
+        .card {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .card {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            box-shadow: 0px 0px 5px #ccc;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .card .content {
+            height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card.expanded .content {
+            height: auto;
+        }
+    </style>
+    <script type="module" src="static/index.js"></script>
+    <script type="module" src="static/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+    <script type="module" src="{{ url_for('static', filename='drag.js') }}"></script>
+</head>
+
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero is-light">
+    <div class="hero-body center">
+        <div class="container">
+            <a class="center_horizontal" style="margin-top: 10vh">
+                <h1 class="title is-1 is-uppercase">Works</h1>
+            </a>
+            <a class="center_horizontal" href="store" style="margin-top: 1vh">
+                <h1 class="subtitle is-uppercase text-decoration: underline;" style="color: hsl(171, 100%, 41%);">
+                    Back to Store</h1>
+            </a>
+            <button class="center_horizontal button is-primary" id="update-order-btn">Update Order</button>
+            <div class="columns is-multiline is-desktop">
+                {% for card in cards %}
+                <div class="column center_horizontal">
+                    <a id="modal-button{{card['index']}}">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img src="{{card['src']}}" id="card-image{{card['index']}}">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="title is-4" contenteditable="true">{{card["title"]}}</h2>
+                                <p class="subtitle is-6" contenteditable="true">{{card["price"]}}</p>
+                                <p class="subtitle is-6" contenteditable="true">{{card["desc"]}}</p>
+                                <p class="content" contenteditable="true">{{card["content"]}}</p>
+                                <input type="file" id="image-upload{{card['index']}}" class="image-upload" style="display: none;">
+                                <label for="image-upload{{card['index']}}" class="button is-primary">Upload Image</label>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="modal" id="my-modal{{card['index']}}">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <div class="box">
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src="{{card['src']}}" id="modal-card-image{{card['index']}}">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="title is-4" contenteditable="true">{{card["title"]}}</h2>
+                                    <p class="subtitle is-6" contenteditable="true">{{card["price"]}}</p>
+                                    <p class="subtitle is-6" contenteditable="true">{{card["desc"]}}</p>
+                                    <p class="content" contenteditable="true">{{card["content"]}}</p>
+                                    <input type="file" id="modal-image-upload{{card['index']}}" class="image-upload" style="display: none;">
+                                    <label for="modal-image-upload{{card['index']}}" class="button is-primary">Upload Image</label>
+                                    <button class="button is-primary" id="save-button{{card['index']}}" data-index="{{card['index']}}">Save</button>
+                                    <button class="button is-primary" id="modal-close{{card['index']}}">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+</section>
+{% endblock %}

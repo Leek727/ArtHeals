@@ -1,5 +1,3 @@
-
-
 <head>
 
     <style>
@@ -28,48 +26,9 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1);
 
         }
-
-        .card {
-            width: 300px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin: 10px;
-            padding: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-
-
-        .card:hover {
-            box-shadow: 0px 0px 5px #ccc;
-        }
-
-        .card img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        .card .content {
-            height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .card.expanded .content {
-            height: auto;
-        }
-
-        @media (min-width: 768px) {
-            .large_card {
-                width: 30vw;
-            }
-        }
-
     </style>
-    <script type="module" src="static/index.js"></script>
-    <script type="module" src="static/main.js"></script>
-    
+    <script type="module" src="index.js"></script>
+
 </head>
 
 
@@ -78,77 +37,60 @@
 
 
 {% block content %}
-
     <section class="hero is-light">
         <div class="hero-body center">
             <div class="container">
-                <a class="center_horizontal" style="margin-top: 10vh">
-                    <h1 class="title is-1 is-uppercase">Works</h1>
 
-                </a>
-                <a class="center_horizontal" href="store" style="margin-top: 1vh">
-                    <h1 class="subtitle is-uppercase text-decoration: underline;" style="color: hsl(171, 100%, 41%);">
-                        Back to Store</h1>
-
-                </a>
-                <div class="columns is-multiline is-desktop ">
-                {% for i in range(11) %}
-                    <div class="column center_horizontal">
-                        <a id="modal-button{{i}}">
-                            <div class="card">
-                                <div class="card-image">
-                                    <figure class="image">
-                                        <img src="/static/images/store0.png">
-                                    </figure>
-                                </div>
-                                <div class="card-content">
-                                    <h2 class="title is-4">Sonder</h2>
-                                    <p class="subtitle is-6">$200</p>
-                                    <p class="subtitle is-6">Sophia Zhang, Acrylic Painting, 9X12 in, Scholastic Art Award,
-                                        Gold Key</p>
-                                    <p class="content">I created this painting to symbolize the philosophy of profound
-                                        pondering and attitude of contemplation. Different people have each have
-                                        different
-                                        understandings of art. You can interpret the meaning of this painting in your
-                                        own
-                                        way. </p>
-                                </div>
-                            </div>
-                        </a>
-
-
-                        <div class="modal" id="my-modal{{i}}">
-                            <div class="modal-background"></div>
-                            <div class="modal-content">
-                                <div class="box">
-                                    <div class="card-image">
-                                        <figure class="image">
-                                            <img src="/static/images/store0.png">
-                                        </figure>
-                                    </div>
-                                    <div class="card-content">
-                                        <h2 class="title is-4">Sonder</h2>
-                                        <p class="subtitle is-6">$200</p>
-                                        <p class="subtitle is-6">Sophia Zhang, Acrylic Painting, 9X12 in, Scholastic Art
-                                            Award,
-                                            Gold Key</p>
-                                        <p class="content">I created this painting to symbolize the philosophy of
-                                            profound
-                                            pondering and attitude of contemplation. Different people have each have
-                                            different
-                                            understandings of art. You can interpret the meaning of this painting in
-                                            your own
-                                            way. </p>
-                                        <button class="button is-primary" id="modal-close{{i}}">Close</button>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="columns is-desktop" style="margin-top: 4vh">
+                    <div class="column">
+                        <a  href="admincharacters" style="text-decoration: underline;" class="title is-2 center_horizontal" style="margin-top: 4vh">Humans and Characters</a>
+                        <div class="card custom-shadow">
+                            <a href="admincharacters"
+                                class="card-image">
+                                <figure class="image">
+                                    <img src="static/images/store0.png">
+                                </figure>
+                            </a>
                         </div>
 
+                        <a  href="adminanimals" style="text-decoration: underline;" class="title is-2 center_horizontal" style="margin-top: 4vh">Animals</h2>
+                        <div class="card custom-shadow">
+                            <a href="adminanimals"
+                                class="card-image">
+                                <figure class="image">
+                                    <img src="static/images/animals/azureflock.png">
+                                </figure>
+                            </a>
+                        </div>
                     </div>
-                    {% endfor %}
+                    <div class="column">
+                        <a  href="adminother" style="text-decoration: underline;" class="title is-2 center_horizontal" style="margin-top: 4vh">Other</h2>
+                        <div class="card custom-shadow">
+                            <a href="adminother"
+                                class="card-image">
+                                <figure class="image">
+                                    <img src="static/images/other/shelter.png">
+                                </figure>
+                            </a>
+                        </div>
+                        
+                        <a  href="adminflowers" class="center_horizontal"  style="margin-top: 4vh">
+                            <h2 style="text-decoration: underline;" class="title is-2">Flowers</h2>
+                        </a>
+                            
+                        <div class="card custom-shadow">
+                            <a href="adminflowers"
+                                class="card-image">
+                                <figure class="image">
+                                    <img src="static/images/scenery/thegarden.png">
+                                </figure>
+                            </a>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
 {% endblock %}
