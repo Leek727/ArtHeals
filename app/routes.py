@@ -11,6 +11,7 @@ from app.mongo_client import AtlasClient
 import bson
 from werkzeug.utils import secure_filename
 import os
+import json
 
 mongo_client = AtlasClient()
 
@@ -80,24 +81,49 @@ def update_card():
     content = request.form['content']
     image_file = request.files.get('image')
 
-    for card in cards:
+
+    category = request.form['url'].replace("admin", "").replace("/", "")
+    cards = mongo_client.get_card_list(category)
+    # save card order first
+    cards_updated = []
+    order = json.loads(request.form["order"])
+    print(order)
+    for order_item in order:
+        ind = order_item["id"]
+        target_card = list(filter(lambda x: x["index"] == int(ind), cards))
+        cards_updated.append(target_card[0])
+
+    
+    #print(cards_updated)
+    # update card data
+    card_update = {}
+    card_index = 0
+    for i,card in enumerate(cards_updated):
+        card_index = i
         if card['index'] == index:
-            card['title'] = title
-            card['price'] = price
-            card['desc'] = desc
-            card['content'] = content
+            card_update = card
+            card_update['title'] = title
+            card_update['price'] = price
+            card_update['desc'] = desc
+            card_update['content'] = content
+            
             if image_file:
                 filename = secure_filename(image_file.filename)
                 image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 image_file.save(image_path)
-                card['src'] = image_path
+                card_update['src'] = image_path.replace("app/", "")
             break
-    # Here you can save the updated card data to your database or file
-    print(cards)
+
+    if card_update == {}:
+        return jsonify(success=False)
+    
+    cards_updated[card_index] = card_update
+    mongo_client.update_card_list(category, cards_updated)
+
+
     return jsonify(success=True)
 
 
-"""
 @app.route("/update_order", methods=["POST"])
 def update_order():
     order = request.json
@@ -107,11 +133,13 @@ def update_order():
     cards_updated = []
     for order_item in order["order"]:
         ind = order_item["id"]
-        cards_updated.append(cards[int(ind)])
+        target_card = list(filter(lambda x: x["index"] == int(ind), cards))
+        cards_updated.append(target_card[0])
 
-    #mongo_client.update_card_list(category, cards_updated)
+    print(cards_updated)
+    mongo_client.update_card_list(category, cards_updated)
 
-    return jsonify(success=True)"""
+    return jsonify(success=True)
 
 @app.route("/contact")
 def contact():

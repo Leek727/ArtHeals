@@ -84,7 +84,7 @@
                         <div class="card">
                             <div class="card-image">
                                 <figure class="image">
-                                    <img src="{{card['src']}}" id="card-image{{card['index']}}">
+                                    <img src="{{card['src']}}"  onerror="this.onerror=null; this.src='static/images/placeholder.jpg';" id="card-image{{card['index']}}">
                                 </figure>
                             </div>
                             <div class="card-content">
@@ -108,11 +108,10 @@
                                 </div>
                                 <div class="card-content">
                                     <h2 class="title is-4" contenteditable="true">{{card["title"]}}</h2>
-                                    <p class="subtitle is-6" contenteditable="true">{{card["price"]}}</p>
-                                    <p class="subtitle is-6" contenteditable="true">{{card["desc"]}}</p>
+                                    <p class="subtitle is-6 test" contenteditable="true">{{card["price"]}}</p>
+                                    <p class="subtitle is-6 test" contenteditable="true">{{card["desc"]}}</p>
                                     <p class="content" contenteditable="true">{{card["content"]}}</p>
-                                    <input type="file" id="modal-image-upload{{card['index']}}" class="image-upload" style="display: none;">
-                                    <label for="modal-image-upload{{card['index']}}" class="button is-primary">Upload Image</label>
+                                    <input type="file" id="image-upload{{card['index']}}" class="image-upload" style="display: none;">
                                     <button class="button is-primary" id="save-button{{card['index']}}" data-index="{{card['index']}}">Save</button>
                                     <button class="button is-primary" id="modal-close{{card['index']}}">Close</button>
                                 </div>

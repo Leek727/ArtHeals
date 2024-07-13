@@ -15,12 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     order.push({ id: id, order: index });
                 });
 
+                let ret = {
+                    'order' : order,
+                    'url' : window.location.pathname
+                };
+
                 fetch('/update_order', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(order)
+                    body: JSON.stringify(ret)
                 }).then(response => {
                     if (response.ok) {
                         alert('Order updated successfully!');
@@ -34,8 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelectorAll('[id^="save-button"]').forEach(button => {
             button.addEventListener('click', () => {
+                // get order
+
+                let order = [];
+                document.querySelectorAll('.columns.is-multiline .column').forEach((el, index) => {
+                    const id = el.querySelector('a').getAttribute('id').replace('modal-button', '');
+                    order.push({ id: id, order: index });
+                });
+
+        
+                // get card data
                 const index = button.getAttribute('data-index');
-                const card = document.querySelector(`#modal-button${index} .card`);
+                const card = document.querySelector(`#my-modal${index}`);//document.querySelector(`#modal-button${index} .card`);
                 const title = card.querySelector('.title.is-4').innerText;
                 const price = card.querySelector('.subtitle.is-6:nth-of-type(1)').innerText;
                 const desc = card.querySelector('.subtitle.is-6:nth-of-type(2)').innerText;
@@ -51,6 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (imageFile) {
                     formData.append('image', imageFile);
                 }
+                formData.append('url', window.location.pathname);
+                formData.append('order', JSON.stringify(order));
+
+                console.log(desc);
 
                 fetch('/update_card', {
                     method: 'POST',
