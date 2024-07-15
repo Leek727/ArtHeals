@@ -91,6 +91,7 @@
                         <div class="navbar-item">
                             <div class="field is-grouped">
                                 <p class="control">
+
                                     <a data-cold class="bd-tw-button button is-link"
                                         href="https://www.facebook.com/profile.php?id=100090468360449">
                                         <span class="icon">
@@ -110,7 +111,21 @@
                                             Twitter
                                         </span>
                                     </a>
-
+                                    {% if current_user.is_authenticated %}
+                                        <a data-cold class="bd-tw-button button is-info"
+                                            href="/logout">
+                                            <span>
+                                                Log Out
+                                            </span>
+                                        </a> 
+                                    {% else %}
+                                        <a data-cold class="bd-tw-button button is-info"
+                                            href="/admin">
+                                            <span>
+                                                Log In
+                                            </span>
+                                        </a>
+                                    {% endif %}
 
                                 </p>
                             </div>

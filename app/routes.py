@@ -12,6 +12,7 @@ import bson
 from werkzeug.utils import secure_filename
 import os
 import json
+import uuid
 
 mongo_client = AtlasClient()
 
@@ -73,6 +74,7 @@ def characters():
 
 
 @app.route('/update_card', methods=['POST'])
+@login_required
 def update_card():
     index = int(request.form['index'])
     title = request.form['title']
@@ -108,7 +110,8 @@ def update_card():
             card_update['content'] = content
             
             if image_file:
-                filename = secure_filename(image_file.filename)
+                image_src = uuid.uuid4().hex[:15] + os.path.splitext(image_file.filename)[1]
+                filename = secure_filename(image_src)
                 image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 image_file.save(image_path)
                 card_update['src'] = image_path.replace("app/", "")
@@ -125,6 +128,7 @@ def update_card():
 
 
 @app.route("/update_order", methods=["POST"])
+@login_required
 def update_order():
     order = request.json
     print(order)
@@ -142,6 +146,7 @@ def update_order():
     return jsonify(success=True)
 
 @app.route("/new_card", methods=["POST"])
+@login_required
 def new_card():
     order = request.json
     category = order["url"].replace("admin", "").replace("/", "")
@@ -164,6 +169,7 @@ def new_card():
 
 
 @app.route("/delete_card", methods=["POST"])
+@login_required
 def delete_card():
     order = request.json
     category = order["url"].replace("admin", "").replace("/", "")
@@ -183,12 +189,31 @@ def delete_card():
 @app.route('/submit', methods=['POST'])
 @login_required
 def submit():
-    content = request.form['content']
-    # Here you can process or store the 'content' variable as needed
-    print(f"Received content:\n{content}")
-    return 'Content received successfully!'
+    cards = mongo_client.get_card_list("news")
+    
+    image_file = request.files.get('image')
+    image_src = ""
+    if image_file != None:
+        image_src = uuid.uuid4().hex[:15] + os.path.splitext(image_file.filename)[1]
+        image_src = secure_filename(image_src)
+        image_path = os.path.join(app.config['UPLOAD_FOLDER'], image_src)
+        image_file.save(image_path)
+        image_src = image_path.replace("app/", "")
+
+    card = {
+        "index" : len(cards),
+        "title" : request.form.get("title"),
+        "html_content" : request.form.get("content"),
+        "src_list" : [image_src],
+        "date" : request.form.get("date")
+    }
+
+    cards.insert(0, card)
+    mongo_client.update_card_list("news", cards)
+    return jsonify(success=True)
 
 @app.route("/adminnews")
+@login_required
 def admin_news():
     cards = mongo_client.get_card_list("news")
     return render_template("adminnews.html", cards=cards)
