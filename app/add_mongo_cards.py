@@ -264,10 +264,6 @@ description_list += [
 category += ["other"] * 7
 content_list += [""] * 7
 
-#a = client.get_card_list("other")
-#print(a)
-#client.update_card_list("other", a)
-"""
 # characters, animals, flowers, other
 for cat in ["characters", "animals", "flowers", "other"]:
     index_offset = 0
@@ -278,8 +274,13 @@ for cat in ["characters", "animals", "flowers", "other"]:
             found_offset = True
             index_offset = i
 
+        elif category[i] != cat and found_offset:
+            found_offset = False
+            break
+
         if not found_offset:
             continue
+
 
         card = {
             "index" : i-index_offset,
@@ -292,4 +293,3 @@ for cat in ["characters", "animals", "flowers", "other"]:
         temp_cards.append(card)
     
     client.add_card_list(temp_cards, cat)
-"""

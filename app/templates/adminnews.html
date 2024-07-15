@@ -98,6 +98,7 @@
             <div class="small_parallax"></div>
         </figure>
     </div>
+    <a href="/admin" class="button title center is-primary">Back</a>
     <section class="section">
         <div class="container">
             <h1 class="title">Add New</h1>
@@ -161,11 +162,13 @@
                         <div class="columns is-multiline">
                             {% for image_src in card["src_list"] %}
                             <div class="column center">
+                                {% if image_src %}
                                 <div class="card-image">
                                     <figure class="image">
                                         <img src={{image_src}} style="width:auto; max-height: 50vh;">
                                     </figure>
                                 </div>
+                                {% endif %}
                             </div>
                             {% endfor %}
                         </div>
