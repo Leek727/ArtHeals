@@ -1,0 +1,244 @@
+
+
+<head>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav {
+            background-color: rgba(0, 0, 0, .4);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+            min-height: 10vh;
+        }
+
+        .custom-shadow:hover {
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .navbar-menu a {
+            color: white;
+            font-size: 17px;
+        }
+
+        .newscard {
+            padding-top: 10vh;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .newscard {
+                padding-left: 40vh;
+                padding-right: 40vh;
+            }
+        }
+
+        .card {
+
+            position: relative;
+
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+
+    <!-- Quill.js CSS -->
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+
+    <!-- Quill.js JavaScript -->
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+
+    <script>
+
+    function deleteCard(card_index) {
+        fetch('/delete_card', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ url: window.location.pathname, index: card_index })
+        }).then(response => {
+            if (response.ok) {
+                alert('Deleted card!');
+                window.location.reload();
+            } else {
+                alert('Failed to delete card!');
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred');
+        });
+
+    } 
+
+    </script>
+</head>
+
+
+
+
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+    <div class="card-image">
+        <figure class="image" style="background-color: black;">
+            <div class="small_parallax"></div>
+        </figure>
+    </div>
+    <a href="/admin" class="button title center is-primary">Back</a>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Add New</h1>
+            <input type="file" id="image-upload" class="image-upload"
+                style="display: none;">
+            <label for="image-upload" class="button is-info">Upload
+                Image</label>          
+ 
+            <div class="image-preview">
+                <img id="preview" style="display:none; max-width: 100%; margin-top: 20px;">
+            </div>
+            <form id="rich-text-form" action="/submit" method="POST">
+
+                <div class="field">
+                    <label class="label">Title</label>
+                    <div class="control">
+                        <input class="input" type="text" name="title" placeholder="Title">
+                    </div>
+                </div>
+
+
+                <div class="field">
+                    <label class="label">Content</label>
+                    <div id="editor" class="control textarea"></div>
+                    <textarea name="content" style="display: none;"></textarea>
+                </div>
+                
+                <div class="field">
+                    <label class="label">Date</label>
+                    <div class="control">
+                        <input class="input" type="date" name="date" placeholder="Date">
+                    </div>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <div>
+        {% for card in cards %} 
+        <div class="newscard" id="{{card['index']}}">
+            <div class="card">
+
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4 has-text-primary">{{card["title"]}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        {{card["html_content"]|safe}}
+
+                        <div class="columns is-multiline">
+                            {% for image_src in card["src_list"] %}
+                            <div class="column center">
+                                {% if image_src %}
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src={{image_src}} style="width:auto; max-height: 50vh;">
+                                    </figure>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+
+
+
+                        <time datetime="AAAA">{{card["date"]}}</time>
+                        <button onclick="deleteCard({{card['index']}})" class="button is-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+    
+
+    <script>
+        let image_file = null;
+        document.getElementById('image-upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            image_file = file;
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('preview');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var quill = new Quill('#editor', {
+                theme: 'snow'
+            });
+
+            document.querySelector('#rich-text-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                var htmlContent = quill.root.innerHTML;
+                var formData = new FormData();
+                formData.append('content', htmlContent);
+
+                if (image_file != null) {
+                    formData.append('image', image_file);
+                }
+
+                var title = document.querySelector('input[name="title"]').value;
+                var date = document.querySelector('input[name="date"]').value;
+                formData.append('title', title);
+                formData.append('date', date);
+
+                console.log(formData);
+                
+                fetch("/submit", {
+                    method: 'POST',
+                    body: formData
+                }).then(response => {
+                    if (response.ok) {
+                        alert('Card updated successfully!');
+                        window.location.reload();
+                    } else {
+                        console.error('Failed to update card');
+                        alert('Failed to update card');
+                    }
+                }).catch(error => {
+                    // handle error
+                });
+            });
+        });
+    </script>
+{% endblock %}

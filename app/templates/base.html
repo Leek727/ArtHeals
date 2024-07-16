@@ -2,17 +2,17 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Art Heals</title>
-    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link rel="icon" type="image/x-icon" href="static/images/logo.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
     <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="main.css">
     <style>
         html {
             scroll-behavior: smooth;
@@ -34,25 +34,20 @@
             color: white;
             font-size: 17px;
         }
-
-        .card {
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1);
-
-        }
     </style>
-    <script type="module" src="index.js"></script>
+
+    <script type="module" src="static/index.js"></script>
 
 </head>
 
-
 <body>
-    <div class="card" id="pagetop">
+    <div class="" id="pagetop">
 
         <div class="is-overlay">
             <nav class="nav navbar is-transparent is-fixed-top">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="/index.html">
-                        <img src="images/logo.png" style="border-radius: 5px; max-height: 60px">
+                    <a class="navbar-item" href="/index">
+                        <img src="static/images/logo.png" style="border-radius: 5px; max-height: 60px">
                     </a>
                     <a role="button" class="navbar-burger burger nav-toggle" onclick="toggleBurger()" aria-label="menu"
                         aria-expanded="false" style="width:10vh; height:10vh">
@@ -65,27 +60,30 @@
 
 
 
-
                 <div class="navbar-menu nav-menu" style="background-color: rgba(0, 0, 0, 0);">
                     <div class="navbar-start">
-                        <a class="navbar-item" href="index.html">
+                        <a class="navbar-item" href="index">
                             Home
                         </a>
-                        <a class="navbar-item" href="contact.html">
+                        <a class="navbar-item" href="index#purpose">
+                            Purpose
+                        </a>
+                        <a class="navbar-item" href="contact">
                             Contact Us
                         </a>
-                        <a class="navbar-item" href="meet-the-team.html">
+                        <a class="navbar-item" href="meet-the-team">
                             Meet The Team
                         </a>
-                        <a class="navbar-item" href="news.html">
+                        <a class="navbar-item" href="news">
                             News
                         </a>
-                        <a class="navbar-item" href="donate.html">
+                        <a class="navbar-item" href="donate">
                             Donate
                         </a>
-                        <a class="navbar-item" href="store.html">
+                        <a class="navbar-item" href="store">
                             Store
                         </a>
+
 
 
                     </div>
@@ -93,6 +91,7 @@
                         <div class="navbar-item">
                             <div class="field is-grouped">
                                 <p class="control">
+
                                     <a data-cold class="bd-tw-button button is-link"
                                         href="https://www.facebook.com/profile.php?id=100090468360449">
                                         <span class="icon">
@@ -112,7 +111,27 @@
                                             Twitter
                                         </span>
                                     </a>
-
+                                    {% if current_user.is_authenticated %}
+                                        <a data-cold class="bd-tw-button button is-info"
+                                            href="/logout">
+                                            <span>
+                                                Log Out
+                                            </span>
+                                        </a> 
+                                        <a data-cold class="bd-tw-button button is-info"
+                                            href="/admin">
+                                            <span>
+                                                Admin
+                                            </span>
+                                        </a>
+                                    {% else %}
+                                        <a data-cold class="bd-tw-button button is-info"
+                                            href="/admin">
+                                            <span>
+                                                Log In
+                                            </span>
+                                        </a>
+                                    {% endif %}
 
                                 </p>
                             </div>
@@ -125,62 +144,16 @@
 
     </div>
 
-
-    <section class="hero is-light">
-        <div class="hero-body center">
-            <div class="container">
-                <a class="center_horizontal" href="/store" target="_blank">
-                    <h1 class="title is-1 is-uppercase">Donate To</h1>
-                </a>
-                <div class="columns is-desktop" style="margin-top: 4vh">
-                    <div class="column">
-                        <a  href="https://forms.gle/o8j1tkCd2Pg7yegL9" style="text-decoration: underline;" class="title is-2 center_horizontal" style="margin-top: 4vh">Humans and Characters</a>
-                        <div class="card custom-shadow">
-                            <a href="https://forms.gle/o8j1tkCd2Pg7yegL9"
-                                class="card-image">
-                                <figure class="image">
-                                    <img src="images/store0.png">
-                                </figure>
-                            </a>
-                        </div>
-
-                        <a  href="https://forms.gle/o8j1tkCd2Pg7yegL9" style="text-decoration: underline;" class="title is-2 center_horizontal" style="margin-top: 4vh">Animals</h2>
-                        <div class="card custom-shadow">
-                            <a href="https://forms.gle/o8j1tkCd2Pg7yegL9"
-                                class="card-image">
-                                <figure class="image">
-                                    <img src="images/animals/azureflock.png">
-                                </figure>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <a  href="https://forms.gle/o8j1tkCd2Pg7yegL9" style="text-decoration: underline;" class="title is-2 center_horizontal" style="margin-top: 4vh">Other</h2>
-                        <div class="card custom-shadow">
-                            <a href="https://forms.gle/o8j1tkCd2Pg7yegL9"
-                                class="card-image">
-                                <figure class="image">
-                                    <img src="images/other/shelter.png">
-                                </figure>
-                            </a>
-                        </div>
-                        
-                        <a  href="https://forms.gle/o8j1tkCd2Pg7yegL9" style="text-decoration: underline;" class="title is-2 center_horizontal" style="margin-top: 4vh">Flowers</h2>
-                        <div class="card custom-shadow">
-                            <a href="https://forms.gle/o8j1tkCd2Pg7yegL9"
-                                class="card-image">
-                                <figure class="image">
-                                    <img src="images/scenery/thegarden.png">
-                                </figure>
-                            </a>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
 
     <footer class="footer">
         <div class=" center_horizontal has-text-centered">
@@ -224,5 +197,10 @@
         </div>
 
     </footer>
-    <script type="text/javascript" src="/burger.js"></script>
+
+
+
+    <script type="text/javascript" src="static/burger.js"></script>
 </body>
+
+</html>

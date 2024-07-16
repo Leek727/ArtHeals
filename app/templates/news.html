@@ -1,0 +1,108 @@
+
+
+<head>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav {
+            background-color: rgba(0, 0, 0, .4);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+            min-height: 10vh;
+        }
+
+        .custom-shadow:hover {
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .navbar-menu a {
+            color: white;
+            font-size: 17px;
+        }
+
+        .newscard {
+            padding-top: 10vh;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .newscard {
+                padding-left: 40vh;
+                padding-right: 40vh;
+            }
+        }
+
+        .card {
+
+            position: relative;
+
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+
+</head>
+
+
+{% extends "base.html" %}
+
+
+
+{% block content %}
+    <div class="card-image">
+        <figure class="image" style="background-color: black;">
+            <div class="small_parallax"></div>
+        </figure>
+    </div>
+    <div>
+        {% for card in cards %} 
+        <div class="newscard" id="{{card['index']}}">
+            <div class="card">
+
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4 has-text-primary">{{card["title"]}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        {{card["html_content"]|safe}}
+
+                        <div class="columns is-multiline">
+                            {% for image_src in card["src_list"] %}
+                            <div class="column center">
+                                {% if image_src %}
+                                <div class="card-image">
+                                    <figure class="image">
+                                        <img src={{image_src}} style="width:auto; max-height: 50vh;">
+                                    </figure>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+
+
+
+                        <time datetime="AAAA">{{card["date"]}}</time>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+{% endblock %}

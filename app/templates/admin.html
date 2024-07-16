@@ -1,0 +1,102 @@
+<head>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav {
+            background-color: rgba(0, 0, 0, .4);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+            min-height: 10vh;
+        }
+
+        .custom-shadow:hover {
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .navbar-menu a {
+            color: white;
+            font-size: 17px;
+        }
+
+        .card {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1);
+
+        }
+    </style>
+    <script type="module" src="index.js"></script>
+
+</head>
+
+
+{% extends "base.html" %}
+
+
+
+{% block content %}
+    <section class="hero is-light">
+        <div class="hero-body center">
+            <div class="container">
+                <div class="center">
+                    <h1 class="title is-1">Admin Panel</h1>
+                </div>
+                <div>
+                    <a href="adminnews" class="button is-primary title is-2 center_horizontal" style="margin-top: 4vh">Edit News</a>
+                </div>
+
+                <div class="columns is-desktop" style="margin-top: 4vh">
+                    <div class="column">
+                        <a  href="admincharacters" style="text-decoration: underline;" class="title is-2 center_horizontal" style="margin-top: 4vh">Humans and Characters</a>
+                        <div class="card custom-shadow">
+                            <a href="admincharacters"
+                                class="card-image">
+                                <figure class="image">
+                                    <img src="static/images/store0.png">
+                                </figure>
+                            </a>
+                        </div>
+
+                        <a  href="adminanimals" style="text-decoration: underline;" class="title is-2 center_horizontal" style="margin-top: 4vh">Animals</h2>
+                        <div class="card custom-shadow">
+                            <a href="adminanimals"
+                                class="card-image">
+                                <figure class="image">
+                                    <img src="static/images/animals/azureflock.png">
+                                </figure>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <a  href="adminother" style="text-decoration: underline;" class="title is-2 center_horizontal" style="margin-top: 4vh">Other</h2>
+                        <div class="card custom-shadow">
+                            <a href="adminother"
+                                class="card-image">
+                                <figure class="image">
+                                    <img src="static/images/other/shelter.png">
+                                </figure>
+                            </a>
+                        </div>
+                        
+                        <a  href="adminflowers" class="center_horizontal"  style="margin-top: 4vh">
+                            <h2 style="text-decoration: underline;" class="title is-2">Flowers</h2>
+                        </a>
+                            
+                        <div class="card custom-shadow">
+                            <a href="adminflowers"
+                                class="card-image">
+                                <figure class="image">
+                                    <img src="static/images/scenery/thegarden.png">
+                                </figure>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,131 @@
+<head>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav {
+            background-color: rgba(0, 0, 0, .4);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+            min-height: 10vh;
+        }
+
+        .custom-shadow:hover {
+
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .navbar-menu a {
+            color: white;
+            font-size: 17px;
+        }
+
+        .card {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1);
+
+        }
+    </style>
+    <script type="module" src="index.js"></script>
+
+</head>
+
+
+{% extends "base.html" %}
+{% block content %}
+    <div class="card-image">
+        <figure class="image" style="background-color: black;">
+            <div class="small_parallax"></div>
+        </figure>
+    </div>
+    <section class="section" style="background-color: rgba(250, 249, 246, 255)">
+        <div class="container">
+            <h1 class="title has-text-centered is-1">Meet Our Team</h1>
+            <hr style="height:2px;border:none;color:#333;background-color:#333; opacity:30%" />
+            <div class="columns is-multiline">
+                
+
+                <div class="column is-one-third center">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="static/images/Sophia.png">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="title is-4">Sophia Zhang</h2>
+                            <p class="subtitle is-6">Founder</p>
+                            <p class="content">Sophia Zhang is a talented artist with many award-winning artworks. She
+                                would like to dedicated her work to the Art Heals charity project and promote new
+                                activities for our fundraising efforts. She believes art can give people the opportunity
+                                to make a difference in the lives of others. She is hoping to make an impact by donating
+                                her art pieces and helping those in need through supporting healthcare and promoting
+                                philanthropy. Sophia is currently working diligently to create new art for Art Heals all
+                                year around. She also initiates, organizes and designs new programs for our artists,
+                                members and volunteers to work together for our missions and services. </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-one-third center">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="static/images/wang.JPG">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="title is-4">Jason Wang</h2>
+                            <p class="subtitle is-6">Member</p>
+                            <p class="content">
+
+                                Jason Wang is an aspiring software developer who is passionate about using technology to
+                                make a positive impact on society. He is currently working on a website with the goal of
+                                creating a platform for health fundraising through art for Art Heals. He hopes
+                                that by using his skills in software development, he can make a meaningful contribution
+                                to the Art Heals community and help improve the lives of those who are
+                                struggling.
+                                This website provides a platform for artists to raise funds for charity and spread
+                                awareness about health issues, aiming to bridge the gap between art and healthcare for
+                                community well-being and healing.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-one-third center">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image ">
+                                <img src="static/images/promyse.png">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="title is-4">Promyse K. Williams</h2>
+                            <p class="subtitle is-6">Member</p>
+                            <p class="content">Promyse K. Williams is a valuable member of Art Heals. She has several
+                                passions—art, writing, fashion, reading—trying to find her way in life. She finds
+                                enjoyment in learning most things, whether it involves STEM, humanities, developing work
+                                skills, or just about anything else. She places a special value, however, on learning
+                                about others, cherishing conversations with her friends, peers and anyone new she meets,
+                                and loving to make new relationships. She always believes she can improve herself and
+                                her outlook on life in these ways. She would like to help those in need though arts
+                                programming. She is currently a member of Fort Wayne Museum of Art Teen Council. </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="is-overlay center">
+        <div class="center_horizontal" style="display:block; padding-top: 16vh">
+            <p class="title is-1 has-text-light center">
+                Meet The Team - Art Heals
+            </p>
+        </div>
+
+    </div>
+{% endblock %}
