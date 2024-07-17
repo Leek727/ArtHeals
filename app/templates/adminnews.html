@@ -79,7 +79,29 @@
             alert('An error occurred');
         });
 
-    } 
+    }
+
+    function moveCard(card_index, direction) {
+        // direction is a int: 0 for down, 1 for up
+        fetch('/move_card', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({index: card_index, direction: direction})
+        }).then(response => {
+            if (response.ok) {
+                alert('Moved card!');
+                window.location.reload();
+            } else {
+                alert('Failed to move card!');
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred');
+        });
+
+    }   
 
     </script>
 </head>
@@ -177,6 +199,8 @@
 
                         <time datetime="AAAA">{{card["date"]}}</time>
                         <button onclick="deleteCard({{card['index']}})" class="button is-danger">Delete</button>
+                        <button onclick="moveCard({{card['index']}}, 1)" class="button is-info">Move up</button>
+                        <button onclick="moveCard({{card['index']}}, 0)" class="button is-info">Move down</button>
                     </div>
                 </div>
             </div>

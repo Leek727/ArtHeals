@@ -168,6 +168,50 @@ def new_card():
     return jsonify(success=True)
 
 
+
+@app.route("/move_card", methods=["POST"])
+@login_required
+def move_card():
+    order = request.json
+    category = "news"
+    cards = mongo_client.get_card_list(category) 
+    direction = order["direction"]
+    index = order["index"]
+
+
+    card_index = 0
+    for i in range(len(cards)):
+        if cards[i]["index"] == int(index):
+            card_index = i
+            break
+
+    card = cards.pop(card_index)
+
+    # get desired index
+    if direction:
+        card_index -= 1
+    else:
+        card_index += 1
+
+    # check bounds
+    if card_index < 0:
+        print("index < 0")
+        cards.insert(0, card)
+        return jsonify(success=False)
+
+    if card_index > len(cards):
+        cards.append(card)
+        return jsonify(success=False)
+
+    # move card
+    cards.insert(card_index, card)
+
+
+    mongo_client.update_card_list(category, cards)
+
+    return jsonify(success=True)
+
+
 @app.route("/delete_card", methods=["POST"])
 @login_required
 def delete_card():
